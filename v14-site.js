@@ -41,3 +41,24 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){io.disconnect();els.forEach(run)}})},{threshold:.35});
   io.observe(box);
 })();
+
+/* t131u: home scroll highlight. The home menu row (hero row and its pinned copy) underlines the section crossing the upper third of the viewport.
+   Nothing on the hero; the Buyer's Guide preview and Resources both light Resources. No animation; the bar is desktop-only (>=641px). */
+(function(){
+  var bar=document.querySelector('.sbar');if(!bar||!('IntersectionObserver' in window))return;
+  var map=[['about','#about'],['listings','#listings'],['neighborhoods','#neighborhoods'],['valuation','#valuation'],['buyers-guide','#resources'],['resources','#resources']];
+  var secs=[],cur=null;
+  map.forEach(function(m){var s=document.getElementById(m[0]),a=[].slice.call(document.querySelectorAll('.sbar nav a[href="'+m[1]+'"],.hero nav a[href="'+m[1]+'"]'));if(s&&a.length)secs.push({s:s,a:a})});
+  if(!secs.length)return;
+  function pick(){
+    var line=innerHeight/3,hit=null;
+    for(var i=0;i<secs.length;i++){if(secs[i].s.getBoundingClientRect().top<=line)hit=secs[i].a}
+    if(hit===cur)return;
+    if(cur)cur.forEach(function(a){a.removeAttribute('aria-current')});
+    if(hit)hit.forEach(function(a){a.setAttribute('aria-current','location')});
+    cur=hit;
+  }
+  var io=new IntersectionObserver(pick,{rootMargin:'-33% 0px -66% 0px',threshold:0});
+  secs.forEach(function(x){io.observe(x.s)});
+  addEventListener('resize',pick);pick();
+})();
