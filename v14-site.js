@@ -25,20 +25,26 @@
   addEventListener('resize',function(){fit();tick()});
 })();
 
-/* t110u: About stats count up once when scrolled into view; final values are already in the HTML. */
+/* t110u/t153u: About stats count up when scrolled into view, and again each time the block comes back after being fully off screen
+   (a partial scroll does not retrigger it; never while a count is running). Final values are already in the HTML; reduced motion = static. */
 (function(){
   var els=[].slice.call(document.querySelectorAll('.abs .cu'));
   if(!els.length||!('IntersectionObserver' in window))return;
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var mq=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)');
+  if(mq&&mq.matches)return;
   function fmt(el,v){var d=+el.dataset.dec;return el.dataset.pre+v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})+el.dataset.suf}
   els.forEach(function(el){el.textContent=fmt(el,0)});
-  function run(el){var to=+el.dataset.to,d=+el.dataset.dec,t0=null,D=1800;
+  var busy=0,away=true;
+  function run(el){var to=+el.dataset.to,d=+el.dataset.dec,t0=null,D=1800;busy++;el.textContent=fmt(el,0);
     function step(t){if(t0===null)t0=t;var k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,3),v=to*e;
       v=d?Math.round(v*Math.pow(10,d))/Math.pow(10,d):Math.round(v);
-      el.textContent=k<1?fmt(el,v):fmt(el,to);if(k<1)requestAnimationFrame(step)}
+      el.textContent=k<1?fmt(el,v):fmt(el,to);if(k<1)requestAnimationFrame(step);else busy--}
     requestAnimationFrame(step)}
   var box=document.querySelector('.abs');
-  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){io.disconnect();els.forEach(run)}})},{threshold:.35});
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){
+    if(!en.isIntersecting){away=true;return}
+    if(en.intersectionRatio>=.34){var go=away&&!busy;away=false;if(!go)return;if(mq&&mq.matches){els.forEach(function(el){el.textContent=fmt(el,+el.dataset.to)});return}els.forEach(run)}
+  })},{threshold:[0,.35]});
   io.observe(box);
 })();
 
