@@ -52,7 +52,7 @@
    Nothing on the hero; the Buyer's Guide preview and Resources both light Resources. No animation; the bar is desktop-only (>=641px). */
 (function(){
   var bar=document.querySelector('.sbar');if(!bar||!('IntersectionObserver' in window))return;
-  var map=[['about','#about'],['listings','#listings'],['neighborhoods','#neighborhoods'],['valuation','#valuation'],['buyers-guide','#resources'],['resources','#resources']];
+  var map=[['about','#about'],['listings','#listings'],['search','#search'],['valuation','#valuation'],['buyers-guide','#resources'],['resources','#resources']];
   var secs=[],cur=null;
   map.forEach(function(m){var s=document.getElementById(m[0]),a=[].slice.call(document.querySelectorAll('.sbar nav a[href="'+m[1]+'"],.hero nav a[href="'+m[1]+'"]'));if(s&&a.length)secs.push({s:s,a:a})});
   if(!secs.length)return;
@@ -108,5 +108,55 @@
     });
     L.addEventListener('mouseleave',function(){if(!hov.matches)return;
       items.forEach(function(d){if(d._hover&&!d._pin){d._hover=false;anim(d,false)}})});
+  });
+})();
+
+/* t166u/t167u (v14k): contact sheet. Every [data-ct] link (hero "Send a message", pinned-bar and header "Contact") opens the dialog;
+   without JS (or without <dialog>) the links keep their own targets (the footer's phone and email, or a mailto).
+   Esc, the Close button and a click on the backdrop close it; Tab wraps inside it; focus returns to the link that opened it.
+   The form sends JSON to FormSubmit's AJAX endpoint with _subject "Website contact". */
+(function(){
+  var d=document.getElementById('ct-dlg');if(!d||typeof d.showModal!=='function')return;
+  var ENDPOINT='https://formsubmit.co/ajax/glenn.velasco@compass.com',opener=null,root=document.documentElement;
+  var f=d.querySelector('form'),thanks=d.querySelector('.ctm-thanks'),err=d.querySelector('.ctm-err'),send=f.querySelector('.ct-send'),
+      opts=f.querySelector('.opts'),lk=document.getElementById(opts.getAttribute('aria-describedby')),mail=err.querySelector('a[href^="mailto:"]');
+  function open(e){if(e){e.preventDefault()}opener=document.activeElement;
+    if(thanks.hidden===false){thanks.hidden=true;f.hidden=false;f.reset()}
+    err.hidden=true;root.classList.add('ct-lock');d.showModal();d.scrollTop=0;d.querySelector('.ctm-x').focus()}
+  function close(){if(d.open)d.close()}
+  d.addEventListener('close',function(){root.classList.remove('ct-lock');if(opener&&opener.focus){opener.focus()}opener=null});
+  [].forEach.call(document.querySelectorAll('[data-ct]'),function(a){a.addEventListener('click',open)});
+  d.querySelector('.ctm-x').addEventListener('click',close);
+  d.addEventListener('click',function(e){if(e.target===d)close()});
+  d.addEventListener('keydown',function(e){
+    if(e.key!=='Tab')return;
+    var q=[].filter.call(d.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]):not([tabindex="-1"]),textarea,select,[tabindex="0"]'),function(el){return el.offsetParent!==null||el.getClientRects().length});
+    // radios: only the checked one (or the first when none is) is in the tab order
+    q=q.filter(function(el){if(el.type!=='radio')return true;var g=f.querySelectorAll('input[name="'+el.name+'"]'),c=f.querySelector('input[name="'+el.name+'"]:checked');return c?el===c:el===g[0]});
+    if(!q.length)return;var a=q[0],z=q[q.length-1];
+    if(e.shiftKey&&(document.activeElement===a||!d.contains(document.activeElement))){e.preventDefault();z.focus()}
+    else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+  });
+  function msg(el,t){var m=document.getElementById(el.getAttribute('aria-describedby'));if(!m)return;m.textContent=t;m.hidden=!t;el.setAttribute('aria-invalid',t?'true':'false')}
+  function check(){var bad=null;
+    f.querySelectorAll('input[required]:not([type=radio]),textarea[required]').forEach(function(el){var v=el.value.trim(),t='';
+      if(!v)t=el.getAttribute('data-req');else if(el.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))t='Enter a valid email address.';
+      msg(el,t);if(t&&!bad)bad=el});
+    var ok=f.querySelector('.opts input:checked');lk.textContent=ok?'':'Choose one option.';lk.hidden=!!ok;opts.setAttribute('aria-invalid',ok?'false':'true');
+    if(!ok&&!bad)bad=f.querySelector('.opts input');
+    if(bad)bad.focus();return !bad}
+  f.querySelectorAll('input[required]:not([type=radio]),textarea[required]').forEach(function(el){el.addEventListener('input',function(){if(el.getAttribute('aria-invalid')==='true')msg(el,'')})});
+  f.querySelectorAll('.opts input').forEach(function(r){r.addEventListener('change',function(){lk.hidden=true;opts.setAttribute('aria-invalid','false')})});
+  f.setAttribute('novalidate','');
+  f.addEventListener('submit',function(e){e.preventDefault();if(!check())return;
+    var data={};new FormData(f).forEach(function(v,k){data[k]=v});
+    var lines=['Name: '+data.name,'Email: '+data.email,'Phone: '+(data.phone||''),"I'm looking to: "+(data.looking_to||''),'','Message:',data.message];
+    mail.href='mailto:glenn.velasco@compass.com?subject='+encodeURIComponent('Website contact')+'&body='+encodeURIComponent(lines.join('\n'));
+    err.hidden=true;send.disabled=true;send.setAttribute('aria-busy','true');send.textContent='Sending…';
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||!(j.success===true||j.success==='true'))throw new Error(j.message||('HTTP '+r.status))})})
+      .then(function(){f.hidden=true;thanks.hidden=false;thanks.focus()})
+      .catch(function(){err.hidden=false;err.focus()})
+      .then(function(){send.disabled=false;send.removeAttribute('aria-busy');send.textContent='Send message'});
   });
 })();

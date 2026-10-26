@@ -186,3 +186,104 @@ main [id]{scroll-margin-top:96px}
   #valuation .op-vx .vl-ph{order:2}
   #valuation .op-vx .vpanel{order:3;margin-top:4px}
 }
+
+/* t163u-t167u (v14k): Search Homes section, Contact entry points (hero, pinned bar, inner header) and the contact sheet (dialog) */
+/* Search Homes: photo left (same square as the valuation photo), copy, one primary button, four area links */
+.op-sx{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,3vw,56px);align-items:start}
+.op-sx .sx-ph{aspect-ratio:1/1;align-self:start;margin:0}
+.op-sx .op-l{margin-top:0}
+.op-sx .sx-go{display:inline-flex;align-items:center;text-decoration:none;margin-top:clamp(24px,2.4vw,32px)}
+.op-sx .op-sl{margin-top:clamp(28px,3vw,40px)}
+.op-sx .op-sl .op-ar{font-size:15px}
+@media (max-width:640px){
+  .op-sx{display:flex;flex-direction:column;gap:0}
+  .op-sx .sxt{display:contents}
+  .op-sx .op-l{order:1}
+  .op-sx .sx-ph{order:2;aspect-ratio:2/1;margin-top:24px}
+  .op-sx .sx-go{order:3;justify-content:center;width:100%}
+  .op-sx .op-sl{order:4;width:100%;align-self:stretch}
+  .op-sx .op-sl a{grid-template-columns:88px 1fr auto}
+}
+/* hero Contact block (column 1, under the tagline) */
+.hero.pp .h-ct{position:absolute;left:calc(10vw + var(--pad));top:calc(34*var(--u));margin:0;pointer-events:auto;display:flex;flex-direction:column;align-items:flex-start;gap:7px;font-size:14px;line-height:1.4;color:var(--ink)}
+.hero.pp .h-ct .label{font-size:11px;letter-spacing:.16em;color:var(--ink-2);margin-bottom:3px}
+.hero.pp .h-ct a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding:1px 0}
+.hero.pp .h-ct a:hover,.hero.pp .h-ct a:focus-visible{border-bottom-color:currentColor}
+.hero.pp .h-ct a:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+.hero.pp .h-ct .ct-open{margin-top:6px;font-size:11px;font-weight:450;letter-spacing:.16em;text-transform:uppercase;border-bottom-color:currentColor}
+@media (max-width:640px){
+  .hero.pp .pst{--u:min(1vw,calc((100svh - 334px)/148));--ckt:calc(42*var(--u) + 136px)}
+  .hero.pp .h-ct{left:var(--pad);right:var(--pad);top:calc(42*var(--u) + 52px);display:grid;grid-template-columns:auto auto 1fr;justify-items:start;column-gap:16px;row-gap:4px;font-size:13.5px}
+  .hero.pp .h-ct .label{grid-column:1/-1;margin-bottom:0;font-size:10.5px}
+  .hero.pp .h-ct a{padding:3px 0}
+  .hero.pp .h-ct .ct-open{grid-column:1/-1;margin-top:2px;font-size:10.5px}
+}
+/* pinned bar (home, >=641px): Contact in the empty first column */
+@media (min-width:641px){
+  .sbar>.sb-ct{grid-column:1;grid-row:1;display:block;padding:var(--pad);padding-bottom:calc(var(--pad) + 6px);color:var(--ink);white-space:nowrap;text-decoration:none}
+  .sbar>.sb-ct:hover,.sbar>.sb-ct:focus-visible{background:rgba(17,17,17,.05);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+}
+/* inner header: Contact as a seventh cell at the right end; phones: beside Menu */
+.ibar{grid-template-columns:var(--c1) repeat(5,minmax(max-content,1fr)) auto}
+.ibar>.ib-ct{grid-column:7;grid-row:1;display:block;padding:var(--pad);padding-bottom:calc(var(--pad) + 6px);color:var(--ink);white-space:nowrap;text-decoration:none;border-left:1px solid rgba(17,17,17,.09)}
+.ibar>.ib-ct:hover,.ibar>.ib-ct:focus-visible{background:rgba(17,17,17,.05);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+@media (max-width:640px){
+  .ibar{grid-template-columns:auto 1fr auto auto}
+  .ibar>.ib-ct{grid-column:3;padding:11px 14px;border:0;font-size:12px;letter-spacing:.14em;line-height:1.2}
+  .ibar.ib-js .ib-menu{grid-column:4;grid-row:1}
+  .ibar nav{grid-row:2}
+}
+/* contact sheet: the NFC card's content and flow (photo, name, Save contact, Call / Text / Email) in the site's look, then a short form */
+html.ct-lock{overflow:hidden}
+dialog.ctm{width:min(560px,calc(100vw - 48px));max-width:none;max-height:calc(100svh - 48px);margin:auto;padding:0;border:1px solid var(--line);border-radius:0;background:var(--paper);color:var(--ink);overflow:auto;overscroll-behavior:contain;box-shadow:0 30px 60px -30px rgba(21,23,26,.45)}
+dialog.ctm::backdrop{background:rgba(21,23,26,.42)}
+dialog.ctm[open]{animation:ctm-in .2s ease-out}
+dialog.ctm[open]::backdrop{animation:ctm-fade .2s ease-out}
+@keyframes ctm-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes ctm-fade{from{opacity:0}to{opacity:1}}
+.ctm-in{padding:28px clamp(22px,3vw,36px) 32px}
+.ctm-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.ctm-top{align-items:center}.ctm-top h2{margin:0;font-size:12px;font-weight:450;letter-spacing:.16em;line-height:1.4;color:var(--ink)}
+.ctm-ln{display:flex;flex-wrap:wrap;gap:6px 24px;margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:16px;line-height:1.5}
+.ctm-ln a{color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.ctm-ln a:hover{text-decoration-thickness:2px}
+.ctm-x{appearance:none;background:none;border:1px solid var(--line);border-radius:0;color:var(--ink);font:inherit;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;padding:11px 14px;line-height:1.2;cursor:pointer}
+.ctm-x:hover{background:rgba(17,17,17,.05)}
+.ctm-x:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ctm .btn{text-decoration:none;display:flex;align-items:center;justify-content:center;text-align:center}
+.ctm-or{display:block;margin:30px 0 18px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink-2)}
+.ctf .field{margin-bottom:18px}
+.ctf .field input{padding:12px 14px;font-size:16px}
+.ctf .field textarea{display:block;width:100%;min-height:112px;padding:12px 14px;border:1px solid rgba(21,23,26,.6);border-radius:0;background:#fff;color:var(--ink);font:inherit;font-size:16px;line-height:1.5;resize:vertical}
+.ctf .field textarea:focus{outline:2px solid var(--ink);outline-offset:0}
+.ctf .field textarea[aria-invalid=true]{border-color:#a3241b}
+.ctf fieldset{margin:0 0 18px;padding:0;border:0;min-width:0}
+.ctf legend{display:block;margin-bottom:8px;padding:0;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase}
+.ctf .opts{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ctf .opt span{min-height:48px;padding:10px 12px;font-size:15px}
+.ctf .opt span::before{width:12px;height:12px;margin-right:10px}
+.ctf .ct-send{width:100%;margin-top:6px}
+.ctf .consent{margin-top:14px}
+.ctm-thanks h3{margin:0;font-size:22px;font-weight:400}
+.ctm-thanks p,.ctm-err p{margin:10px 0 0;color:var(--ink-2);line-height:1.55}
+.ctm-thanks:focus,.ctm-err:focus{outline:none}
+.ctm-err{margin-top:16px;padding:14px 16px;border:1px solid #a3241b}
+.ctm-err p{margin:0;color:var(--ink)}
+.ctm a:not(.btn){color:var(--ink)}
+@media (max-width:640px){
+  dialog.ctm{width:100%;height:100%;max-height:none;margin:0;border:0;box-shadow:none}
+  dialog.ctm[open]{animation-name:ctm-up;animation-duration:.24s}
+  @keyframes ctm-up{from{transform:translateY(32px);opacity:0}to{transform:none;opacity:1}}
+  .ctm-in{padding:16px 20px 32px}
+  .ctf .opts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){dialog.ctm[open],dialog.ctm[open]::backdrop{animation:none}}
+/* v14k: Contact cell matches nav labels; hero contact fits 641-999 */
+@media (min-width:641px){.sbar>.sb-ct,.ibar>.ib-ct{font-size:clamp(13px,1.08vw,16px);font-weight:450;letter-spacing:.14em;text-transform:uppercase;line-height:1.4}
+  .sbar>.sb-ct{padding-right:0}}
+@media (min-width:641px) and (max-width:999px){.hero.pp .h-ct{top:max(calc(34*var(--u)),calc(25*var(--u) + 104px))}.hero.pp .h-ct a[href^="mailto:"]:not(.ct-open){display:none}}
+/* v14k: 7-cell ibar fit 641-980 */
+.ibar .dd-p{left:auto;right:-1px}
+@media (min-width:641px) and (max-width:980px){.ibar nav>a,.ibar nav>.dd>a,.ibar>.ib-ct,.sbar nav>a,.sbar nav>.dd>a,.sbar>.sb-ct{padding-left:10px;padding-right:10px;font-size:11.5px;letter-spacing:.1em}}
+@media (min-width:641px) and (max-width:820px){.ibar nav>a,.ibar nav>.dd>a,.ibar>.ib-ct,.sbar nav>a,.sbar nav>.dd>a,.sbar>.sb-ct{padding-left:8px;padding-right:8px;font-size:10.5px;letter-spacing:.06em}}
+.ctm .nw{white-space:nowrap}
