@@ -357,8 +357,9 @@ html.lv-open{overflow:hidden}
 /* v11: about page as one full-viewport screen */
 .ab-screen{position:relative;height:calc(100vh - 69px);height:calc(100svh - 69px);min-height:560px;overflow:hidden;color:#fff;background:#2a2620}
 .ab-bg,.ab-bg picture,.ab-bg img{position:absolute;inset:0;width:100%;height:100%}
-.ab-bg img{object-fit:cover;object-position:62% 50%}
-.ab-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,12,10,.8) 0,rgba(14,12,10,.78) 37%,rgba(14,12,10,.36) 49%,rgba(14,12,10,0) 60%),linear-gradient(0deg,rgba(14,12,10,.45) 0,rgba(14,12,10,0) 32%)}
+.ab-bg img{object-fit:cover;object-position:30% 35%}
+@media (min-aspect-ratio:2/1) and (min-width:641px){.ab-bg img{object-position:30% 15%}}
+.ab-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,12,10,.8) 0,rgba(14,12,10,.78) 33%,rgba(14,12,10,.62) 36.5%,rgba(14,12,10,.28) 40%,rgba(14,12,10,0) 44%),linear-gradient(0deg,rgba(14,12,10,.45) 0,rgba(14,12,10,0) 32%)}
 .ab-copy{position:relative;z-index:1;box-sizing:border-box;width:36%;max-width:560px;height:100%;padding:clamp(28px,5vh,56px) 0 clamp(28px,5vh,56px) clamp(24px,4vw,56px);display:flex;flex-direction:column;justify-content:center}
 .ab-copy .h2{color:#fff;margin:0 0 clamp(14px,2.6vh,24px);font-weight:300;font-size:clamp(24px,2.1vw,32px);letter-spacing:.12em;text-transform:uppercase;line-height:1.15}
 .ab-copy .bio p{color:#fff;font-size:clamp(14px,1.05vw,16px);line-height:1.62;margin:0 0 .95em;max-width:none;text-shadow:0 1px 2px rgba(0,0,0,.35)}
@@ -369,7 +370,8 @@ html.lv-open{overflow:hidden}
 .ab-stats li span:first-child{color:rgba(255,255,255,.78)}
 .ab-stats li span:last-child{text-align:right}
 @media (max-height:820px) and (min-width:641px){.ab-copy .bio p{font-size:14px;line-height:1.55}.ab-copy .h2{font-size:24px}}
-@media (max-width:1000px) and (min-width:641px){.ab-copy{width:48%}.ab-bg img{object-position:70% 50%}.ab-bg::after{background:linear-gradient(90deg,rgba(14,12,10,.78) 0,rgba(14,12,10,.7) 42%,rgba(14,12,10,0) 70%)}}
+@media (max-width:1000px) and (min-width:641px){.ab-copy{width:48%}.ab-bg img{object-position:0% 35%}.ab-bg::after{background:linear-gradient(90deg,rgba(14,12,10,.78) 0,rgba(14,12,10,.72) 46%,rgba(14,12,10,0) 54%)}}
+@media (max-width:1000px) and (min-width:641px) and (max-aspect-ratio:1/1){.ab-bg img{object-position:40% 35%}}
 @media (max-width:640px){
  .ab-screen{height:auto;min-height:0;overflow:visible;background:var(--paper);color:inherit}
  .ab-bg,.ab-bg picture{position:static;height:auto}
