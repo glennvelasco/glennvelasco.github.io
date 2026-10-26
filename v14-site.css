@@ -71,6 +71,7 @@
 .op-nbx .nb-ph{aspect-ratio:4/5}
 .op-vx{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,3vw,56px);align-items:start}
 .op-vx .vl-ph{aspect-ratio:1/1;align-self:start}
+@media (max-width:640px){.op-vx .vl-ph{aspect-ratio:2/1}}
 .op-vx>div>.op-l:first-child{margin-top:0}
 .nb-in .nb-ph{aspect-ratio:21/8;margin-top:clamp(32px,3.6vw,56px)}
 .nb-in .nb-ph img{object-position:50% 62%}
@@ -137,4 +138,51 @@
   /* t133u: the section in view also gets the hero menu's hover fill (v14.css: rgba(17,17,17,.05)); the pinned bar's hover now uses the same fill so hover and in-view match. Same value on hover, so no double-darken. */
   .sbar nav>a[aria-current],.sbar nav>.dd>a[aria-current],.hero.pp nav>a[aria-current],
   .sbar nav>a:hover,.sbar nav>.dd>a:hover,.sbar nav>a:focus-visible,.sbar nav>.dd>a:focus-visible{background:rgba(17,17,17,.05)}
+}
+/* ---------- t155u/t156u batch ---------- */
+/* Inner-page header: the same off-white bar as the home page's pinned menu (v14-site.css .sbar), with the static signature logo in the first column */
+.ibar{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:var(--c1) repeat(5,minmax(0,1fr));background:var(--paper);color:var(--ink);border-bottom:1px solid var(--line);box-shadow:0 6px 14px -14px rgba(21,23,26,.45)}
+.ibar .ib-logo{grid-column:1;display:flex;align-items:center;padding:0 var(--pad);text-decoration:none}
+.ibar .ib-logo img{display:block;height:clamp(50px,4.3vw,62px);width:auto;margin:-2px 0}
+.ibar .ib-logo:focus-visible{outline:1px solid var(--ink);outline-offset:-4px}
+.ibar nav{display:contents}
+.ibar nav>a,.ibar nav>.dd>a{display:block;padding:var(--pad);padding-bottom:calc(var(--pad) + 6px);color:var(--ink);white-space:nowrap;text-decoration:none;border-left:1px solid rgba(17,17,17,.09);
+  font-size:clamp(14px,1.08vw,16px);font-weight:450;letter-spacing:.14em;text-transform:uppercase;line-height:1.4}
+.ibar nav>.dd{display:block}
+.ibar nav>a[aria-current],.ibar nav>.dd>a[aria-current] span{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.ibar nav>a[aria-current],.ibar nav>.dd>a[aria-current],.ibar nav>a:hover,.ibar nav>.dd>a:hover,.ibar nav>a:focus-visible,.ibar nav>.dd>a:focus-visible{background:rgba(17,17,17,.05)}
+.ibar nav>a:hover,.ibar nav>a:focus-visible,.ibar nav>.dd>a:hover,.ibar nav>.dd>a:focus-visible{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.ibar .dd-p{top:100%;left:-1px;margin-top:1px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.ibar .dd-p a{color:var(--ink)}
+.ib-menu{display:none}
+main [id]{scroll-margin-top:96px}
+@media (max-width:640px){
+  .ibar{grid-template-columns:auto 1fr;align-items:center;padding:10px 20px}
+  .ibar .ib-logo{padding:0}
+  .ibar .ib-logo img{height:50px;margin:-4px 0}
+  .ibar.ib-js .ib-menu{display:block;justify-self:end;margin:0;padding:11px 14px;background:none;border:1px solid var(--line);border-radius:0;color:var(--ink);font:inherit;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;line-height:1;cursor:pointer}
+  .ib-menu:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+  .ibar nav{grid-column:1/-1;display:block;margin-top:10px;border-top:1px solid var(--line)}
+  .ibar.ib-js:not(.open) nav{display:none}
+  .ibar nav>a,.ibar nav>.dd>a{border-left:0;border-bottom:1px solid rgba(17,17,17,.09);padding:15px 4px;font-size:12.5px;letter-spacing:.12em;background:none}
+  .ibar nav>.dd{border-bottom:1px solid rgba(17,17,17,.09)}
+  .ibar nav>.dd>a{border-bottom:0}
+  .ibar nav .dd-p{position:static;opacity:1;visibility:visible;transform:none;transition:none;margin:0;padding:0 0 10px 18px;border:0;background:none;min-width:0}
+  .ibar nav .dd-p a{padding:10px 0;font-size:11.5px}
+  .ibar .dd::after{display:none}
+  main [id]{scroll-margin-top:72px}
+}
+/* FAQ rows (.faq details): hover opens a row on desktop with a short drop-down; click/tap and keyboard still toggle. Reduced motion = instant. */
+.faq details{overflow:hidden}
+.faq summary{transition:color .15s ease}
+@media (hover:hover) and (pointer:fine){.faq summary:hover{color:var(--ink-2)}}
+@media (prefers-reduced-motion:reduce){.faq summary{transition:none}}
+/* Home "What's your home worth?": the valuation page's step form sits under the blurb, square photo on the right */
+#valuation .op-vx .vpanel{margin-top:clamp(28px,3vw,44px);max-width:620px}
+#valuation .op-vx .vthanks h2{font-size:clamp(19px,1.6vw,24px)}
+@media (max-width:640px){
+  #valuation .op-vx>div:first-child{display:contents}
+  #valuation .op-vx .op-l{order:1;margin-bottom:0}
+  #valuation .op-vx .vl-ph{order:2}
+  #valuation .op-vx .vpanel{order:3;margin-top:4px}
 }

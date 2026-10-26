@@ -68,3 +68,45 @@
   secs.forEach(function(x){io.observe(x.s)});
   addEventListener('resize',pick);pick();
 })();
+/* t156u: inner-page header menu (phones). Without JS the links simply show under the logo. */
+(function(){
+  var h=document.querySelector('.ibar'),b=h&&h.querySelector('.ib-menu');if(!b)return;
+  h.classList.add('ib-js');
+  function set(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Close':'Menu'}
+  b.addEventListener('click',function(){set(!h.classList.contains('open'))});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&h.classList.contains('open')){set(false);b.focus()}});
+  var mq=matchMedia('(min-width:641px)');(mq.addEventListener?mq.addEventListener('change',function(){set(false)}):mq.addListener(function(){set(false)}));
+})();
+/* t155u: FAQ rows. Desktop (real hover): resting on a row for a moment opens it with a short drop-down; rows opened by hover close together when the
+   pointer leaves the list, so nothing above the pointer collapses and the rows never jump under it. Click, tap, Enter or Space toggle a row and keep it.
+   Reduced motion: no animation. */
+(function(){
+  var lists=[].slice.call(document.querySelectorAll('.faq'));if(!lists.length)return;
+  var hov=matchMedia('(hover:hover) and (pointer:fine)'),rm=matchMedia('(prefers-reduced-motion: reduce)'),D=240;
+  function anim(d,open){
+    var s=d.querySelector('summary');if(d._a){d._a.cancel();d._a=null}
+    if(open===d.open&&!d._closing)return;
+    if(rm.matches||!d.animate){d.open=open;d._closing=false;return}
+    var from=d.getBoundingClientRect().height;
+    if(open){d.open=true;d._closing=false}
+    var to=open?d.getBoundingClientRect().height:s.getBoundingClientRect().height+parseFloat(getComputedStyle(d).borderBottomWidth||0);
+    d._closing=!open;
+    var a=d.animate([{height:from+'px'},{height:to+'px'}],{duration:D,easing:'cubic-bezier(.2,.7,.2,1)'});d._a=a;
+    a.onfinish=function(){d._a=null;if(!open){d.open=false;d._closing=false}};
+  }
+  lists.forEach(function(L){
+    var items=[].slice.call(L.querySelectorAll('details'));
+    items.forEach(function(d){
+      var s=d.querySelector('summary'),t=null;
+      s.addEventListener('click',function(e){e.preventDefault();clearTimeout(t);
+        var isOpen=d.open&&!d._closing;
+        if(isOpen&&d._hover){d._hover=false;d._pin=true;return}   /* opened by hover: a click keeps it open */
+        d._hover=false;d._pin=!isOpen;anim(d,!isOpen)});
+      d.addEventListener('mouseenter',function(){if(!hov.matches)return;clearTimeout(t);
+        t=setTimeout(function(){if(!(d.open&&!d._closing)){d._hover=true;anim(d,true)}},110)});
+      d.addEventListener('mouseleave',function(){clearTimeout(t)});
+    });
+    L.addEventListener('mouseleave',function(){if(!hov.matches)return;
+      items.forEach(function(d){if(d._hover&&!d._pin){d._hover=false;anim(d,false)}})});
+  });
+})();
