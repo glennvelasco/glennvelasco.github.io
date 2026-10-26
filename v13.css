@@ -12,12 +12,9 @@
 .hero.h13 h1 .who,.hero.h13 h1 .what{display:block}
 .hero.h13 h1 .what{margin-top:.18em}
 .hero.h13 .h-bio{margin:clamp(18px,2vw,28px) 0 0;max-width:52ch;font-size:clamp(15px,1.1vw,17px);line-height:1.6;font-weight:350;color:var(--light-2)}
-.hero.h13 .h-links{margin:14px 0 0;display:flex;gap:24px;flex-wrap:wrap;pointer-events:auto}
-.hero.h13 .h-links a{font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 @media (hover:hover) and (min-width:641px){
   @supports ((-webkit-background-clip:text) or (background-clip:text)){
-    .hero.h13 .h-bio,.hero.h13 .h-links a{color:transparent;-webkit-background-clip:text;background-clip:text;
-      background-image:linear-gradient(90deg,var(--k1) 0 calc(var(--cw) - var(--pad)),var(--k2) 0 calc(2*var(--cw) - var(--pad)),var(--k3) 0 calc(3*var(--cw) - var(--pad)),var(--k4) 0)}
+    .hero.h13 .h-bio,      background-image:linear-gradient(90deg,var(--k1) 0 calc(var(--cw) - var(--pad)),var(--k2) 0 calc(2*var(--cw) - var(--pad)),var(--k3) 0 calc(3*var(--cw) - var(--pad)),var(--k4) 0)}
     .hero.h13 .h-bio{opacity:.9}
   }
 }
@@ -27,7 +24,6 @@
   .hero.h13 h1{font-size:24px;letter-spacing:.12em;line-height:1.18}
   .hero.h13 h1 .what{font-size:24px}
   .hero.h13 .h-bio{grid-column:1/4;grid-row:2;margin:0;padding:6px var(--pad) 0;font-size:14px;line-height:1.55;max-width:none;position:relative;z-index:1;color:var(--light)}
-  .hero.h13 .h-links{display:none}
   .hero.h13 .mark{grid-row:3;align-self:center}
   .hero.h13 .mark img{width:64px}
   .hero.h13 .fh,.hero.h13 nav{grid-row:4}
