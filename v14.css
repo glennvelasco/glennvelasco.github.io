@@ -60,14 +60,28 @@
   .cd-addr{font-size:16px}
   .cd-price{font-size:17px}
 }
-/* stats: one compact strip */
-.sts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px clamp(24px,4vw,72px);padding:clamp(28px,3.4vw,48px) clamp(20px,4vw,56px);border-top:1px solid var(--line)}
-.sts-i{display:flex;align-items:baseline;gap:clamp(14px,1.6vw,24px)}
-.sts-n{margin:0;flex:none;font-weight:200;font-size:clamp(40px,4vw,60px);letter-spacing:.02em;line-height:1}
-.sts-n sup{font-size:.4em;vertical-align:.95em;margin-left:.06em;font-weight:300}
-.sts-t{margin:0;max-width:40ch;font-size:15px;line-height:1.5;font-weight:350}
-.sts-src{grid-column:1/-1;margin:0;font-size:12px;line-height:1.5;color:var(--ink-2)}
-@media (max-width:640px){.sts{grid-template-columns:1fr;gap:18px;padding:28px 20px}.sts-n{font-size:40px;min-width:3.2ch}.sts-t{font-size:14px}}
+/* stats (t99u): two Compass numerals right below the hero, thin rules, lots of air */
+.sts{padding:clamp(64px,8vw,128px) clamp(20px,4vw,56px) clamp(48px,6vw,96px) calc(var(--c1) + clamp(24px,4vw,72px));border-top:1px solid var(--line)}
+.sts-k{margin:0 0 clamp(36px,4.4vw,64px);font-size:12px;font-weight:450;color:var(--ink-2)}
+.sts-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:980px}
+.sts-i{padding:4px clamp(24px,4vw,72px) 4px 0}
+.sts-i+.sts-i{border-left:1px solid var(--line);padding-left:clamp(24px,4vw,72px)}
+.sts-n{margin:0;font-weight:200;font-size:clamp(56px,6.4vw,104px);letter-spacing:-.01em;line-height:1}
+.sts-n sup{font-size:.3em;vertical-align:1.6em;margin-left:.08em;font-weight:300;letter-spacing:0}
+.sts-t{margin:clamp(16px,1.6vw,24px) 0 0;font-size:12px;color:var(--ink)}
+.sts-src{margin:clamp(40px,4.4vw,64px) 0 0;font-size:12px;line-height:1.5;color:var(--ink-2);max-width:70ch}
+@media (max-width:640px){
+  .sts{padding:64px 20px 56px}
+  .sts-k{margin-bottom:36px}
+  .sts-g{grid-template-columns:1fr}
+  .sts-i{padding:0 0 28px}
+  .sts-i+.sts-i{border-left:0;border-top:1px solid var(--line);padding:28px 0 0}
+  .sts-n{font-size:64px}
+  .sts-t{font-size:11.5px;margin-top:14px}
+  .sts-src{margin-top:36px}
+}
+.ab-team{margin:18px 0 0;font-size:14px;line-height:1.5;color:var(--ink-2);max-width:40ch}
+.about-grid .ab-team+.more{margin-top:20px}
 .ps-more{margin:0;padding:0 clamp(20px,4vw,56px) clamp(40px,5vw,72px)}
 
 /* paper hero shared by C1-C3 */
@@ -100,9 +114,12 @@
 .hero.pp.c3 .h-logo{left:calc(10vw + var(--pad));top:calc(5*var(--u));width:calc(19*var(--u))}
 .hero.pp.c3 .h-line{left:calc(10vw + var(--pad));top:calc(25*var(--u));width:calc(20*var(--u));line-height:1.7}
 @media (max-width:640px){
+  /* t100u: phones only, both prints ~25% larger; the clock print starts right under the one line (no fixed gap) */
+  .hero.pp .pst{--u:min(1vw,calc((100svh - 244px)/148));--ckt:calc(42*var(--u) + 44px);min-height:calc(var(--ckt) + 106*var(--u))}
+  .hero.pp .comp{height:calc(var(--ckt) + 106*var(--u))}
   .hero.pp.c3 .h-logo{left:calc(var(--pad));top:calc(4*var(--u));width:calc(38*var(--u))}
   .hero.pp.c3 .h-line{left:calc(var(--pad));top:calc(42*var(--u));width:auto}
-  .hero.pp.c3 .ck{top:calc(58*var(--u));width:calc(74*var(--u));aspect-ratio:4/3}
+  .hero.pp.c3 .ck{top:var(--ckt);width:min(88vw,calc(92*var(--u)));aspect-ratio:4/3}
   .hero.pp.c3 .ck img{object-position:56% 60%}
-  .hero.pp.c3 .gp{right:auto;left:max(var(--pad),calc(100% - 101*var(--u)));top:calc(98*var(--u));width:calc(34*var(--u));outline-width:calc(1.2*var(--u))}
+  .hero.pp.c3 .gp{right:auto;left:max(var(--pad),calc(100% - min(88vw,calc(92*var(--u))) - 18*var(--u)));top:calc(var(--ckt) + 50*var(--u));width:calc(43*var(--u));outline-width:calc(1.2*var(--u))}
 }

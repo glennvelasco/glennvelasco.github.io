@@ -1,5 +1,5 @@
 /* Glenn Velasco: site styles. Brand matches the approved NFC card: midnight navy, Barlow Condensed caps for display, Helvetica for text, brass only on the main action, square corners, left-aligned grid. Spacing scale: 4 8 16 24 32 48 64 96 */
-@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-700.woff2?v=20261026b) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(fonts/barlow-condensed-700.woff2?v=20261026c) format("woff2");font-weight:700;font-display:swap}
 :root{--field:#0b1230;--deep:#081236;--navy2:#16245e;--ink:#050a1f;--paper:#fbf8f3;--paper-ink:#0b1230;--paper-soft:#4a5068;--paper-rule:rgba(11,18,48,.18);--fg:#fff;--soft:rgba(255,255,255,.76);--rule:rgba(255,255,255,.2);--press:rgba(255,255,255,.08);--brass:rgb(201,162,74);--sheen:rgba(201,162,74,.6);--pad:16px;--max:1280px;--display:"Barlow Condensed","Helvetica Neue",Helvetica,Arial,sans-serif;--text:"Helvetica Neue",Helvetica,Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}

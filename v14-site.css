@@ -1,0 +1,116 @@
+/* ---------- v14 batch: site-wide nav, dropdown, footer logo, neighborhoods ---------- */
+.topbar nav a,.hero nav a{white-space:nowrap}
+/* Resources dropdown: thin rule, small caps, ~200ms */
+.dd{position:relative;display:inline-flex}
+.res span{display:inline-block;transition:transform .2s ease}
+.dd-p{position:absolute;z-index:20;margin:0;padding:8px 0;list-style:none;min-width:168px;
+  opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease,visibility 0s linear .2s}
+.dd-p a{display:block;padding:9px 18px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;white-space:nowrap;text-decoration:none}
+.dd-p a:hover,.dd-p a:focus-visible{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.dd-p a:focus-visible{outline:1px solid currentColor;outline-offset:-3px}
+.res[aria-expanded="true"] span,.dd:hover .res span,.dd:focus-within .res span,.hero nav .res:hover span{transform:translateY(-3px)}
+.res[aria-expanded="true"]+.dd-p,.dd:hover .dd-p,.dd:focus-within .dd-p,.hero nav .res:hover+.dd-p,.hero nav .res:focus+.dd-p,.hero nav .dd-p:hover,.hero nav .dd-p:focus-within{
+  opacity:1;visibility:visible;transform:none;transition:opacity .2s ease,transform .2s ease,visibility 0s}
+/* inner pages: dark topbar, panel drops below the word */
+.topbar .dd-p{top:100%;left:-18px;margin-top:6px;background:#121417;border:1px solid rgba(244,242,238,.22);color:var(--light)}
+.topbar .dd-p a{color:var(--light)}
+.topbar .dd::after{content:"";position:absolute;left:0;right:0;top:100%;height:10px}  /* hover bridge */
+/* home hero: nav sits at the bottom of the first screen, so the panel opens just above the word */
+.hero nav .dd-p{background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.hero nav .dd-p li a{display:block;grid-row:auto;grid-column:auto;align-self:auto;position:static;padding:9px 18px;font-size:11px;letter-spacing:.16em;color:var(--ink);background:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.hero nav .dd-p li a:focus-visible{outline:1px solid var(--ink);outline-offset:-3px}
+@media (min-width:641px){
+  .hero nav .dd-p{grid-column:6;grid-row:3;position:absolute;bottom:calc(var(--pad) + 40px);left:calc(var(--pad) - 18px);transform:translateY(4px)}
+}
+@media (max-width:640px){
+  .hero nav{position:relative}
+  .hero nav .dd-p{left:calc(var(--pad) - 16px);bottom:calc(var(--pad) + 32px)}
+}
+@media (prefers-reduced-motion:reduce){.res span,.dd-p{transition:none!important}}
+/* footer logo (t97u): Glenn's signature logo, ~2.5-3x the old mark's visual size */
+.foot .side img{display:none}
+.foot .f-logo{display:block;margin:0 0 18px;line-height:0}
+.foot .f-logo img{display:block;width:240px;height:auto}
+@media (max-width:640px){.foot .f-logo img{width:180px}}
+/* home hero top row: Enquire gone; on phones the Fair Housing link moves up to the top-right, as on desktop */
+@media (max-width:640px){
+  .hero.h13 .fh{grid-column:2/4;grid-row:1;align-self:start;justify-self:end;text-align:right;padding:calc(var(--pad) + 4px) var(--pad) 0 0}
+  .hero.h13 nav{grid-column:2/4}
+}
+/* neighborhoods (t97u): v14 sections, thin rules, small caps labels */
+.nb-in{padding:clamp(56px,7vw,104px) var(--pad) clamp(32px,4vw,56px) calc(var(--c1) + var(--pad));border-bottom:1px solid var(--line)}
+.nb-in .label{display:block;margin-bottom:18px;color:var(--ink-2)}
+.nb-in h1{margin:0;font-weight:300;font-size:clamp(40px,5.4vw,84px);line-height:1;letter-spacing:-.02em}
+.nb-in p.lede{max-width:46ch;margin:22px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--ink-2)}
+.sec.nb{border-top:0;border-bottom:1px solid var(--line)}
+.nb .side .label{display:block;color:var(--ink-2)}
+.nb .body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:clamp(32px,5vw,96px);align-items:start}
+.nb h2{margin:0 0 24px}
+.nb .nb-p{margin:0;max-width:52ch;font-size:clamp(16px,1.15vw,18px);line-height:1.65;font-weight:330}
+.nb figure{margin:clamp(32px,3.4vw,48px) 0 0;max-width:560px}
+.nb figure .im{aspect-ratio:3/2;overflow:hidden;background:#e4e1db}
+.nb figure img{display:block;width:100%;height:100%;object-fit:cover}
+.nb figcaption{margin-top:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.nb dl{margin:0;border-top:1px solid var(--line)}
+.nb dl>div{padding:18px 0;border-bottom:1px solid var(--line)}
+.nb dt{margin:0 0 10px;font-size:11px;color:var(--ink-2)}
+.nb dd{margin:0;font-size:15px;line-height:1.6}
+.nb dd ul{margin:0;padding:0;list-style:none}
+.nb dd li{display:flex;justify-content:space-between;gap:16px;padding:6px 0}
+.nb dd li+li{border-top:1px solid var(--line)}
+.nb dd li a:hover,.nb dd li a:focus-visible{text-decoration:underline;text-underline-offset:4px}
+.nb dd li .label{flex:none;font-size:10.5px;letter-spacing:.12em;color:var(--ink-2);padding-top:3px}
+@media (max-width:1000px){.nb .body{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .nb-in{padding:48px 20px 32px}
+  .nb dd li{flex-direction:column;gap:2px}
+}
+/* t104u one-page home previews */
+.op .body h2{margin-bottom:14px}
+.op-l{margin:0;max-width:56ch;font-size:clamp(16px,1.15vw,18px);line-height:1.6;color:var(--ink-2)}
+.op-nb,.op-st,.op-rs{list-style:none;margin:clamp(24px,2.6vw,36px) 0 0;padding:0}
+.op-nb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.8vw,28px)}
+.op-nb a,.op-st a,.op-rs a{display:block;text-decoration:none;color:inherit}
+.op-im{aspect-ratio:3/2;overflow:hidden;background:#e4e1db;margin-bottom:12px}
+.op-im img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.op-nb a:hover img{transform:scale(1.03)}
+.op-k{display:block;font-size:10.5px;color:var(--ink-2);margin-bottom:4px}
+.op-n{display:block;font-size:clamp(17px,1.3vw,20px);font-weight:400;line-height:1.3}
+.op-nb a:hover .op-n,.op-st a:hover .op-n,.op-rs a:hover .op-n,.op a:focus-visible .op-n{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.op-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.op-st li{border-right:1px solid var(--line)}
+.op-st li:last-child{border-right:0}
+.op-st a{padding:22px clamp(16px,2vw,32px) 6px 0}
+.op-st li+li a{padding-left:clamp(16px,2vw,32px)}
+.op-num{display:block;font-weight:200;font-size:clamp(40px,3.6vw,56px);line-height:1;letter-spacing:-.02em;margin-bottom:14px;color:var(--ink)}
+.op-c{display:block;margin-top:8px;font-size:15px;line-height:1.55;color:var(--ink-2);max-width:36ch}
+.op-rs{border-top:1px solid var(--line);margin-top:4px}
+.op-rs li{border-bottom:1px solid var(--line)}
+.op-rs a{display:grid;grid-template-columns:120px 1fr auto;align-items:baseline;gap:16px;padding:16px 0}
+.op-rs .op-k{margin:0}
+.op-ar{font-size:16px;color:var(--ink-2);transition:transform .2s ease}
+.op-rs a:hover .op-ar{transform:translateX(3px)}
+@media (max-width:640px){
+  .op-nb{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}
+  .op-st{grid-template-columns:1fr}
+  .op-st li{border-right:0;border-bottom:1px solid var(--line)}
+  .op-st a,.op-st li+li a{padding:16px 0 14px;display:grid;grid-template-columns:52px 1fr;column-gap:12px}
+  .op-st .op-num{grid-row:1/4;font-size:34px;margin:0}
+  .op-rs a{grid-template-columns:84px 1fr auto}
+}
+@media (prefers-reduced-motion:reduce){.op-im img,.op-ar{transition:none}}
+/* t103u sticky nav band (home, >=641px): a fixed copy of the hero nav row appears once that row reaches the top */
+.sbar{display:none}
+@media (min-width:641px){
+  .sbar{display:grid;position:fixed;left:0;right:0;top:0;z-index:50;grid-template-columns:var(--c1) repeat(5,1fr);background:var(--paper);border-bottom:1px solid var(--line);
+    visibility:hidden;transition:box-shadow .2s ease}
+  .sbar.on{visibility:visible;box-shadow:0 6px 14px -14px rgba(21,23,26,.45)}
+  .sbar nav{display:contents}
+  .sbar nav>a,.sbar nav>.dd>a{display:block;padding:var(--pad);padding-bottom:calc(var(--pad) + 6px);color:var(--ink);white-space:nowrap;text-decoration:none;border-left:1px solid rgba(17,17,17,.09)}
+  .sbar nav>a:nth-child(1){grid-column:2}
+  .sbar nav>.dd{grid-column:6;display:block}
+  .sbar nav>a:hover,.sbar nav>a:focus-visible,.sbar nav>.dd>a:hover,.sbar nav>.dd>a:focus-visible{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+  .sbar .dd-p{top:100%;left:-1px;margin-top:1px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+  .sbar .dd-p a{color:var(--ink)}
+  html.has-sbar [id]{scroll-margin-top:calc(var(--sbh,58px) + 8px)}
+}
