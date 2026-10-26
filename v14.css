@@ -148,3 +148,11 @@
   .hero.pp .pr.gp.sh:hover{box-shadow:0 3px 6px rgba(20,16,10,.11),0 14px 24px -6px rgba(20,16,10,.22),0 32px 56px -12px rgba(20,16,10,.28)}
 }
 @media (prefers-reduced-motion:reduce){.hero.pp .pr.sh{transition:none}.hero.pp .pr.sh:hover{translate:none}}
+
+/* t139u signature draw-on (sig.js). The real <img> keeps the layout and is the final state; the overlay svg sits exactly on it */
+.hero .h-logo .sig{position:absolute;left:0;top:0;width:100%;height:100%;display:block;pointer-events:none}
+.hero .h-logo .sig path{fill:#000}
+.sig-pre .hero .h-logo img{visibility:hidden;animation:sigSafe 0s 2.6s forwards}  /* JS never ran -> logo still appears */
+.sig-run .hero .h-logo img{animation:none;visibility:hidden}
+@keyframes sigSafe{to{visibility:visible}}
+@media (prefers-reduced-motion:reduce){.sig-pre .hero .h-logo img{visibility:visible;animation:none}.hero .h-logo .sig{display:none}}
