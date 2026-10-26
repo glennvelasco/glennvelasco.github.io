@@ -127,7 +127,7 @@
 }
 /* opt A (t114u/t124u): Compass wordmark set into the tagline, cap-height, on the text baseline */
 .hero.pp .h-line .h-co{display:block;white-space:nowrap}
-.hero.pp .h-line .h-cm{display:inline-block;height:.72em;width:auto;vertical-align:baseline;margin-right:.3em;filter:none;opacity:1}
+.hero.pp .h-line .h-cm{display:inline-block;height:.88em;width:auto;vertical-align:baseline;margin-right:.3em;filter:none;opacity:1}
 /* t126u: D1 'Centered' from compass-opts/apply_hero_d.py, desktop only, at the current print sizes (Glenn: no extra size increase,
    so D1's 4% scale-up is left out; widths/offsets stay 60u / 18u / 46u and only the centering is applied) */
 @media (min-width:641px){
@@ -156,3 +156,4 @@
 .sig-run .hero .h-logo img{animation:none;visibility:hidden}
 @keyframes sigSafe{to{visibility:visible}}
 @media (prefers-reduced-motion:reduce){.sig-pre .hero .h-logo img{visibility:visible;animation:none}.hero .h-logo .sig{display:none}}
+.hero.pp .h-line .h-co>picture{display:contents}
