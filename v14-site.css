@@ -529,3 +529,25 @@ html.mh-open,html.mh-open body{overflow:hidden}
   .hero.h13.pp.mhB .h-line::before{content:"";position:absolute;z-index:-1;left:-20px;width:100vw;top:-26px;bottom:-26px;pointer-events:none;
     background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.55) 36%,rgba(0,0,0,.55) 64%,rgba(0,0,0,0) 100%)}
 }
+
+/* t218u mockup: Search Homes quick-search form (replaces the plain button; opens Compass with the filters set) */
+.op-sx .sxf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 16px;margin-top:clamp(24px,2.4vw,32px);max-width:620px}
+.sxf-t{grid-column:1/-1;display:flex;margin:0;padding:0;border:0;min-width:0}
+.sxf-t label{flex:1;position:relative;cursor:pointer}
+.sxf-t input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.sxf-t span{display:flex;align-items:center;justify-content:center;min-height:44px;border:1px solid rgba(21,23,26,.6);font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent}
+.sxf-t label+label span{border-left:0}
+.sxf-t input:checked+span{background:var(--ink);color:var(--light);border-color:var(--ink)}
+.sxf-t input:focus-visible+span{outline:2px solid var(--ink);outline-offset:2px}
+.sxf-f{display:flex;flex-direction:column;min-width:0}
+.sxf-a{grid-column:1/-1}
+.sxf-f label{margin-bottom:8px;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.sxf select{appearance:none;-webkit-appearance:none;width:100%;min-height:48px;padding:12px 36px 12px 14px;border:1px solid rgba(21,23,26,.6);border-radius:0;color:var(--ink);font:inherit;font-size:16px;line-height:1.3;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2315171a' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right 14px center}
+.sxf select:focus-visible{outline:2px solid var(--ink);outline-offset:0}
+.op-sx .sxf .sx-go{grid-column:1/-1;justify-self:start;margin-top:6px}
+@media (max-width:640px){
+  .op-sx .sxf{order:3;width:100%;max-width:none;margin-top:24px;grid-template-columns:1fr 1fr;gap:16px 12px}
+  .sxf-f.sxf-b{grid-column:1/-1}
+  .op-sx .sxf .sx-go{justify-self:stretch;justify-content:center;width:100%;margin-top:4px}
+}
