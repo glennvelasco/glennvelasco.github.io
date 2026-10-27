@@ -422,3 +422,39 @@ html.mh-open,html.mh-open body{overflow:hidden}
 .mn-sub a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 }
 @media (max-width:640px) and (prefers-reduced-motion:reduce){.mnav,.mn-ch{transition:none}}
+
+/* t185u: stats as two 2x2 grids (desktop), Compass logo heading */
+.abs-k .abs-logo{display:inline-block;height:.78em;width:auto;vertical-align:baseline;margin-right:1.1em;transform:translateY(.02em)}
+.abs-k sup{font-size:.8em;line-height:0;vertical-align:.3em;margin-left:.1em}
+.abs2 .abs-r{row-gap:clamp(28px,3vw,44px)}
+.abs2 .abs-t{max-width:30ch}
+.abs2 .abs-g{padding-bottom:clamp(24px,2.4vw,36px)}
+@media (min-width:641px){.abs2 .abs-n{font-size:clamp(34px,3.2vw,52px)}}
+.abs2 .abs-src{margin:clamp(20px,2vw,28px) 0 0;max-width:none}
+@media (max-width:640px){.abs2 .abs-dx{display:none}.abs2 .abs-g{padding-bottom:0}.abs2 .abs-src{margin-top:12px}}
+
+/* t186u: Search Homes value line */
+.op-sx .sx-x{margin:14px 0 0;max-width:48ch;font-size:13px;line-height:1.55;color:var(--ink-2)}
+@media (max-width:640px){.op-sx .sx-x{order:3;margin-top:12px;text-align:center;align-self:center}}
+.op-sx .sx-x sup{font-size:.75em;line-height:0;vertical-align:.35em;margin-left:.1em}
+.op-sx .sx-n{margin:8px 0 0;max-width:60ch;font-size:11.5px;line-height:1.45;color:var(--ink-2)}
+@media (max-width:640px){.op-sx .sx-n{order:3;margin-top:6px;text-align:center;align-self:center;font-size:11px}}
+
+/* t187u: phones, one row of 4 stats, Glenn pair | Compass pair */
+@media (max-width:640px){
+.abs2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:32px}
+.abs2 .abs-g{padding:16px 12px 0 0}
+.abs2 .abs-g+.abs-g{border-top:0;margin-top:0;border-left:1px solid var(--line);padding:16px 0 0 12px}
+.abs2 .abs-k{margin-bottom:10px;font-size:10px;line-height:12px;white-space:nowrap}
+.abs2 .abs-k .abs-logo{height:9px;margin-right:.25em;transform:none}
+.abs2 .abs-kt{display:none}
+.abs2 .abs-r{gap:10px}
+.abs2 .abs-n{font-size:22px;letter-spacing:-.02em}
+.abs2 .abs-t{font-size:11px;line-height:1.3;margin-top:6px}
+.abs2 .abs-src{margin-top:10px;font-size:11px;line-height:1.35}
+}
+
+/* t187u: About photo on phones = stoop portrait */
+.portrait.pm{display:none}
+@media (max-width:640px){.about-grid .portrait:not(.pm){display:none}.about-grid .portrait.pm{display:block;margin-left:auto;margin-right:auto;justify-self:center}
+.about-grid .portrait.pm img{object-fit:cover;object-position:50% 50%}}
