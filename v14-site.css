@@ -508,6 +508,11 @@ html.mh-open,html.mh-open body{overflow:hidden}
 /* Guides & Articles page */
 .ga-in{max-width:52ch;margin:20px 0 32px;line-height:1.6}
 .ga-back{margin-top:32px}
+/* t217u: resources.html audience groups. The side label is the group heading; tighter body so four blocks read as one list. */
+.sec>.side h2.label{margin:0;font-weight:450;line-height:1.4;text-transform:uppercase}
+.sec.rs-g>.body{padding-top:clamp(32px,3.2vw,48px);padding-bottom:clamp(40px,4vw,64px)}
+.sec.rs-top>.body{padding-bottom:clamp(40px,4vw,64px)}
+@media (max-width:640px){.sec.rs-g>.body{padding-top:16px;padding-bottom:48px}}
 /* t213u: audience filter tabs. Text links on a thin rule, current one underlined; no pills. */
 .ga-tabs{display:flex;flex-wrap:wrap;gap:4px 28px;margin:0;border-bottom:1px solid var(--line)}
 .ga-tabs a{display:inline-block;padding:12px 0 10px;margin-bottom:-1px;border-bottom:1px solid transparent;color:var(--ink-2);text-decoration:none;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase}
