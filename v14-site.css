@@ -331,7 +331,7 @@ dialog.ctm[open]::backdrop{animation:ctm-fade .2s ease-out}
 .hero.h13.pp.mhB .pr.ck::after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.25) 34%,rgba(0,0,0,.25) 56%,rgba(0,0,0,.8) 100%)}
 .hero.h13.pp.mhB .h-logo{width:min(40vw,calc(22svh * 1.16),170px)}
 .hero.h13.pp.mhB .h-logo img{filter:invert(1)}
-.hero.h13.pp.mhB .h-logo .sig path{fill:#fff}
+.hero.h13.pp.mhB .h-logo .sig>path{fill:#fff}  /* t207u: only the drawn letters; mask pen paths keep fill:none so the strokes draw on like desktop */
 .hero.h13.pp.mhB .h-line{margin-top:14px;color:#fff}
 .hero.h13.pp.mhB .h-line .h-co{border-left-color:rgba(255,255,255,.45)}
 .hero.h13.pp.mhB .h-line .h-cm{filter:none}
@@ -468,3 +468,20 @@ html.mh-open,html.mh-open body{overflow:hidden}
 .portrait.pm{display:none}
 @media (max-width:640px){.about-grid .portrait:not(.pm){display:none}.about-grid .portrait.pm{display:block;margin-left:auto;margin-right:auto;justify-self:center}
 .about-grid .portrait.pm img{object-fit:cover;object-position:50% 50%}}
+
+/* t207u: Resources row labels ("NEIGHBORHOODS") ran into the link text on phones (84px column was narrower than the word).
+   One shared label column sized to the longest label, so every row lines up and nothing touches */
+.op-rs{display:grid;grid-template-columns:max-content minmax(0,1fr) auto;column-gap:20px}
+.op-rs li{display:grid;grid-column:1/-1;grid-template-columns:subgrid}
+.op-rs li a{grid-column:1/-1;grid-template-columns:subgrid;gap:0;column-gap:20px}
+@media (max-width:640px){.op-rs,.op-rs li a{column-gap:16px}}
+/* t207u: About facts: labels in one column, values in one left-aligned column with even line-height, so the wrapped
+   Specialties line sits under its own first line instead of floating mid-row */
+#about .facts{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:20px}
+#about .facts li{display:grid;grid-column:1/-1;grid-template-columns:subgrid;align-items:baseline;gap:0;column-gap:20px;line-height:1.45}
+#about .facts li span:last-child{text-align:left;text-wrap:balance}
+@media (max-width:640px){#about .facts,#about .facts li{column-gap:16px}}
+/* t207u: side labels ("RESOURCES", "VALUATION") ran past the column rule on tablets/1024 (10-12% column was narrower than the word).
+   The first column never drops below 112px above phones, so every side label clears the rule */
+@media (min-width:641px){:root{--c1:max(10%,112px)}}
+@media (min-width:641px) and (max-width:1000px){:root{--c1:max(12%,112px)}}
