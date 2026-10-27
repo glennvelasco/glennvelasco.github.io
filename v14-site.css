@@ -454,14 +454,14 @@ html.mh-open,html.mh-open body{overflow:hidden}
 .abs2 .abs-src{margin-top:10px;font-size:11px;line-height:1.35}
 }
 
-/* t200u: phones, Glenn keeps 75+ | 50+; the 24 stat sits as one compact line at the bottom of his side,
-   opposite the Compass source line, so both sides end level */
+/* t201u: phones, Glenn's side is an upside-down triangle: 75+ | 50+ on top, 24 centered below them with its label
+   centered under the number, bottom level with the Compass source line */
 @media (max-width:640px){
 .abs2 .abs-glenn{display:flex;flex-direction:column}
-.abs2 .abs-glenn .abs-r{flex:1;grid-template-rows:auto 1fr}
-.abs2 .abs-glenn .abs-i:nth-child(3){grid-column:1/-1;align-self:end;display:flex;align-items:center;gap:8px;margin-top:0}
-.abs2 .abs-glenn .abs-i:nth-child(3) .abs-n{line-height:1;flex:none}
-.abs2 .abs-glenn .abs-i:nth-child(3) .abs-t{margin-top:0}
+.abs2 .abs-glenn .abs-r{flex:1;grid-template-rows:auto 1fr;row-gap:6px}
+.abs2 .abs-glenn .abs-i:nth-child(3){grid-column:1/-1;align-self:end;justify-self:center;text-align:center}
+.abs2 .abs-glenn .abs-i:nth-child(3) .abs-n{line-height:1}
+.abs2 .abs-glenn .abs-i:nth-child(3) .abs-t{margin-top:3px;font-size:10px;line-height:1.15}
 }
 
 /* t187u: About photo on phones = stoop portrait */
