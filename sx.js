@@ -12,7 +12,7 @@ f.sxUrl=function(){var q={},a=+mn.value||0,b=+mx.value||0,n=bd.value;
  if(a&&b&&a>b){var t=a;a=b;b=t}
  if(a||b){q.price={};if(a)q.price.min={num:a};if(b)q.price.max={num:b}}
  if(n)q.beds={min:{num:+n}};
- var u='https://www.compass.com/'+(kind()==='rent'?'for-rent':'homes-for-sale')+'/'+(ar.value||'new-york-ny')+'/?';
+ var u='https://www.compass.com/'+(kind()==='rent'?'for-rent':'homes-for-sale')+'/'+((f.sxPath&&f.sxPath())||(ar.value||'new-york-ny')+'/')+'?';
  if(q.price||q.beds)u+='searchQuery='+encodeURIComponent(JSON.stringify(q))+'&';
  return u+'agent_id='+f.getAttribute('data-ag')};
 f.addEventListener('submit',function(ev){ev.preventDefault();var a=document.createElement('a');a.href=f.sxUrl();a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});

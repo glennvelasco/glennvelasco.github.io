@@ -16,6 +16,15 @@
 .sxm-n.on.hv{fill:#24357a}
 .sxm-r{min-height:3em;margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--ink-2)}
 .sxm-r b{font-weight:500;color:var(--ink)}
+/* t242u mockup: chosen neighborhoods + Clear */
+.sxf-p{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:10px}
+.sxf-p[hidden]{display:none}
+.sxf-c{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.sxf-c button{display:inline-flex;align-items:center;gap:8px;min-height:36px;margin:0;padding:0 10px 0 12px;border:1px solid rgba(21,23,26,.6);border-radius:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;line-height:1.2;cursor:pointer}
+.sxf-c button i{font-style:normal;font-size:16px;line-height:1;color:var(--ink-2)}
+.sxf-c button:hover{border-color:var(--ink)}
+.sxf-x{min-height:36px;margin:0;padding:0 2px;border:0;background:none;color:var(--ink);font:inherit;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.sxf-c button:focus-visible,.sxf-x:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.sxm-n{transition:none}}
 @media (max-width:640px){
   .op-sx .sx-map{order:2;width:100%;margin-top:24px}
