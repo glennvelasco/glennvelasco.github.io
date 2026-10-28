@@ -1,0 +1,22 @@
+/* t244u: desktop Past sales = horizontal scroll row (all 15 cards), prev/next arrows, scroll snap. Phones unchanged (v14-site.css .mh-car). */
+@media (min-width:641px){
+.ps{--ps-in:clamp(20px,4vw,56px);--ps-g:clamp(20px,2.4vw,40px)}
+.ps .two.mh-car{display:flex;gap:var(--ps-g);overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:var(--ps-in);scrollbar-width:none;padding:0 var(--ps-in) 4px;margin-bottom:24px}
+.ps .two.mh-car::-webkit-scrollbar{display:none}
+.ps .two.mh-car>*{flex:0 0 calc((100% - 2 * var(--ps-g)) / 2.2);min-width:0;scroll-snap-align:start}
+.ps .two.mh-car>.mh-only{display:block!important}
+.ps .two.mh-car>.mh-only.rv{opacity:1;transform:none}
+.ps .two.mh-car:focus-visible{outline:1px solid var(--ink);outline-offset:-1px}
+.ps-nav{display:flex;align-items:center;gap:24px;padding:0 var(--ps-in);margin:0 0 clamp(28px,3vw,40px)}
+.ps-ctr{display:flex;align-items:center;gap:16px;flex:1;margin:0;font-size:11px;letter-spacing:.16em;color:var(--ink-2);white-space:nowrap}
+.ps-ctr i{display:block;flex:1;height:1px;background:var(--line);position:relative;overflow:hidden}
+.ps-ctr i b{position:absolute;top:0;left:0;height:1px;background:var(--ink);width:var(--p,20%);left:var(--x,0%)}
+.ps-btns{display:flex;gap:8px}
+.ps-btns button{display:grid;place-items:center;width:44px;height:44px;padding:0;margin:0;border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);cursor:pointer;font:inherit}
+.ps-btns button svg{width:18px;height:18px;display:block}
+.ps-btns button:hover{background:var(--ink);color:var(--bg,#faf7f2)}
+.ps-btns button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ps-btns button[aria-disabled="true"]{opacity:.35;cursor:default;background:transparent;color:var(--ink)}
+}
+@media (min-width:641px) and (prefers-reduced-motion:no-preference){.ps .two.mh-car{scroll-behavior:smooth}}
+@media (max-width:640px){.ps-nav{display:none}}

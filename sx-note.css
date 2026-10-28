@@ -1,0 +1,8 @@
+/* t245u: Search Homes right column. Compass note under the form: one quiet block, aligned to the form width, no orphan words. Spacing and type only. */
+.op-sx .sx-x{margin-top:28px;max-width:620px;font-size:14px;line-height:1.55;text-wrap:balance}
+.op-sx .sx-x+.sx-x{margin-top:4px}
+.op-sx .sx-x2{color:var(--ink)}
+@media (max-width:640px){
+.op-sx .sx-x{margin-top:20px;max-width:none;font-size:13px;text-wrap:balance}
+.op-sx .sx-x+.sx-x{margin-top:4px}
+}
