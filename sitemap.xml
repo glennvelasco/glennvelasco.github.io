@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://glennvelasco.com/</loc></url>
-  <url><loc>https://glennvelasco.com/about.html</loc></url>
-  <url><loc>https://glennvelasco.com/portfolio.html</loc></url>
-  <url><loc>https://glennvelasco.com/neighborhoods.html</loc></url>
-  <url><loc>https://glennvelasco.com/buyers-guide.html</loc></url>
-  <url><loc>https://glennvelasco.com/renters-guide.html</loc></url>
-  <url><loc>https://glennvelasco.com/valuation.html</loc></url>
-  <url><loc>https://glennvelasco.com/resources.html</loc></url>
-  <url><loc>https://glennvelasco.com/guides-articles.html</loc></url>
-  <url><loc>https://glennvelasco.com/it/comprare-casa-new-york.html</loc></url>
-  <url><loc>https://glennvelasco.com/es/comprar-casa-nueva-york.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://glennvelasco.com/</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/about.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/portfolio.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/neighborhoods.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/buyers-guide.html</loc><lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://glennvelasco.com/buyers-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://glennvelasco.com/es/comprar-casa-nueva-york.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/comprare-casa-new-york.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://glennvelasco.com/buyers-guide.html"/></url>
+  <url><loc>https://glennvelasco.com/renters-guide.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/valuation.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/resources.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/guides-articles.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://glennvelasco.com/it/comprare-casa-new-york.html</loc><lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://glennvelasco.com/buyers-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://glennvelasco.com/es/comprar-casa-nueva-york.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/comprare-casa-new-york.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://glennvelasco.com/buyers-guide.html"/></url>
+  <url><loc>https://glennvelasco.com/es/comprar-casa-nueva-york.html</loc><lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://glennvelasco.com/buyers-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://glennvelasco.com/es/comprar-casa-nueva-york.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/comprare-casa-new-york.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://glennvelasco.com/buyers-guide.html"/></url>
 </urlset>
