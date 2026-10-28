@@ -1,0 +1,24 @@
+/* t264u: desktop "More exclusive listings" shows 4 cards, then a plus button that expands the rest in place.
+   Phones (max-width:640px) unchanged: the swipe row keeps every card and the button is hidden.
+   No JS = no .xm-on class = every card visible and no button. */
+.xm{display:none}
+@media (min-width:641px){
+.act.xm-on .two{padding-bottom:clamp(28px,3vw,40px)}
+.act.xm-on:not(.xm-open) .two>:nth-child(n+5){display:none}
+.act.xm-on .two.xm-anim{overflow:hidden;transition:height .45s cubic-bezier(.2,.7,.2,1)}
+.act.xm-on .xm{display:block;padding:0 clamp(20px,4vw,56px) clamp(40px,5vw,72px)}
+.xm-btn{display:inline-flex;align-items:center;gap:18px;min-height:44px;padding:0;margin:0;border:0;border-radius:0;background:transparent;color:var(--ink);font:inherit;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.xm-ic{position:relative;display:block;flex:0 0 44px;width:44px;height:44px;border:1px solid var(--ink);transition:background-color .2s ease,color .2s ease}
+.xm-ic::before,.xm-ic::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1px;margin:-.5px 0 0 -7px;background:currentColor;transition:transform .3s ease}
+.xm-ic::after{transform:rotate(90deg)}
+.xm-btn[aria-expanded="true"] .xm-ic::after{transform:rotate(0deg)}
+.xm-t{border-bottom:1px solid transparent;padding-bottom:3px;margin-top:3px;transition:border-color .2s ease}
+.xm-btn:hover .xm-ic{background:var(--ink);color:var(--paper,#faf7f2)}
+.xm-btn:hover .xm-t{border-bottom-color:currentColor}
+.xm-btn:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+.act.xm-open .two>.xm-new{animation:xm-in .5s ease both}
+@keyframes xm-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
+@media (min-width:641px) and (prefers-reduced-motion:reduce){
+.act.xm-on .two.xm-anim{transition:none}.act.xm-open .two>.xm-new{animation:none}.xm-ic::before,.xm-ic::after,.xm-ic{transition:none}
+}
