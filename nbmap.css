@@ -1,0 +1,32 @@
+/* Home Search Homes map (replaces the Search Homes photo; t233u) */
+.op-sx .sx-map{margin:0;align-self:start;display:none}
+.op-sx .sx-map.on{display:block}
+.sxm-t{display:flex;margin:0 0 -1px}
+.sxm-t button{flex:1;min-height:40px;margin:0;padding:0 12px;border:1px solid rgba(21,23,26,.6);border-radius:0;background:transparent;color:var(--ink);font:inherit;font-size:12px;font-weight:450;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.sxm-t button+button{border-left:0}
+.sxm-t button[aria-pressed="true"]{background:#16245e;border-color:#16245e;color:#fff}
+.sxm-t button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.sxm-c{position:relative;aspect-ratio:4/5;border:1px solid rgba(21,23,26,.6);background:#dfe6f0;overflow:hidden}
+.sxm-s{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.sxm-x{fill:#f1eee7;stroke:none}
+.sxm-p{fill:#d6dccb;stroke:none;pointer-events:none}
+.sxm-n{fill:#f9f7f2;stroke:#9aa6bf;stroke-width:.8px;vector-effect:non-scaling-stroke;stroke-linejoin:round;cursor:pointer;transition:fill .15s}
+.sxm-n.sxm-f{fill:#c9d3e6}
+.sxm-n.hv{fill:#7f93c4}
+.sxm-n.on{fill:#16245e;stroke:#fff;stroke-width:1.2px}
+.sxm-n.on.hv{fill:#24357a}
+.sxm-r{min-height:3em;margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.sxm-r b{font-weight:500;color:var(--ink)}
+.sxm-k{display:flex;gap:16px;margin:4px 0 0;padding:0;list-style:none;font-size:11.5px;color:var(--ink-2)}
+.sxm-k li::before{content:"";display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid #9aa6bf}
+.sxm-k .k1::before{background:#c9d3e6}.sxm-k .k2::before{background:#f9f7f2}
+@media (prefers-reduced-motion:reduce){.sxm-n{transition:none}}
+@media (max-width:640px){
+  .op-sx .sx-map{order:2;width:100%;margin-top:24px}
+  .sxm-c{aspect-ratio:1/1;max-height:62svh}
+  .sxm-r{min-height:0;margin-top:8px}
+}
+@media (max-width:640px){
+  #search>.side{display:none}
+  #search>.body{padding-top:48px}
+}
