@@ -11,15 +11,11 @@
 .sxm-x{fill:#f1eee7;stroke:none}
 .sxm-p{fill:#d6dccb;stroke:none;pointer-events:none}
 .sxm-n{fill:#f9f7f2;stroke:#9aa6bf;stroke-width:.8px;vector-effect:non-scaling-stroke;stroke-linejoin:round;cursor:pointer;transition:fill .15s}
-.sxm-n.sxm-f{fill:#c9d3e6}
 .sxm-n.hv{fill:#7f93c4}
 .sxm-n.on{fill:#16245e;stroke:#fff;stroke-width:1.2px}
 .sxm-n.on.hv{fill:#24357a}
 .sxm-r{min-height:3em;margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--ink-2)}
 .sxm-r b{font-weight:500;color:var(--ink)}
-.sxm-k{display:flex;gap:16px;margin:4px 0 0;padding:0;list-style:none;font-size:11.5px;color:var(--ink-2)}
-.sxm-k li::before{content:"";display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid #9aa6bf}
-.sxm-k .k1::before{background:#c9d3e6}.sxm-k .k2::before{background:#f9f7f2}
 @media (prefers-reduced-motion:reduce){.sxm-n{transition:none}}
 @media (max-width:640px){
   .op-sx .sx-map{order:2;width:100%;margin-top:24px}

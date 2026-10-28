@@ -2,19 +2,21 @@
 (function(){var D=window.NBMAP,fig=document.getElementById('sxm'),f=document.getElementById('sxf');if(!D||!fig||!f)return;
 var ar=f.querySelector('#sx-a'),NS='http://www.w3.org/2000/svg',rd=fig.querySelector('.sxm-r'),wrap=fig.querySelector('.sxm-c');
 var tabs=[].slice.call(fig.querySelectorAll('.sxm-t button'));
-var base={};[].forEach.call(ar.options,function(o){base[o.value]=o.textContent});
 function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e}
 var svg=el('svg',{'class':'sxm-s','aria-hidden':'true',focusable:'false',preserveAspectRatio:'xMidYMid meet'});
 svg.appendChild(el('path',{d:D.ctx,'class':'sxm-x'}));
 svg.appendChild(el('path',{d:D.park,'class':'sxm-p'}));
 var g=el('g',{'class':'sxm-g'}),by={};svg.appendChild(g);
-D.f.forEach(function(o){var p=el('path',{d:o.d,'class':'sxm-n'+(base[o.s]?' sxm-f':'')});p._o=o;(by[o.s]=by[o.s]||[]).push(p);g.appendChild(p)});
+D.f.forEach(function(o){var p=el('path',{d:o.d,'class':'sxm-n'});p._o=o;(by[o.s]=by[o.s]||[]).push(p);g.appendChild(p)});
 by['nolita-manhattan-ny']=by['soho-manhattan-ny'];   /* no NTA of its own: Nolita sits inside SoHo-Little Italy */
 wrap.appendChild(svg);fig.classList.add('on');
 function boro(s){return /brooklyn-ny$/.test(s)?'B':/(manhattan|queens)-ny$/.test(s)?'M':null}
 var cur=null,anim=0,red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* Manhattan framed from the top of Morningside Heights (y 524) down to the Battery: square box on phones, 4:5 box on desktop. Brooklyn keeps D.v.B. */
+var mq=window.matchMedia&&matchMedia('(max-width:640px)'),MP=[722,524,508,508],MD=[772,524,406,508];
+function vb(v){return v==='M'?(mq&&mq.matches?MP:MD):D.v[v]}
 function view(v,now){tabs.forEach(function(t){t.setAttribute('aria-pressed',t.dataset.v===v?'true':'false')});
- if(cur===v)return;var to=D.v[v],from=cur&&svg.getAttribute('viewBox');cur=v;cancelAnimationFrame(anim);
+ if(cur===v)return;var to=vb(v),from=cur&&svg.getAttribute('viewBox');cur=v;cancelAnimationFrame(anim);
  if(!from||now||red){svg.setAttribute('viewBox',to.join(' '));return}
  var a=from.split(' ').map(Number),t0=performance.now();
  (function st(t){var k=Math.min(1,(t-t0)/380);k=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
@@ -38,4 +40,5 @@ tabs.forEach(function(t){t.addEventListener('click',function(){var v=t.dataset.v
  if(boro(ar.value)!==v||ar.value==='queens-ny'){ar.value=v==='B'?'brooklyn-ny':'manhattan-ny';sync()}})});
 ar.addEventListener('change',sync);
 view(boro(ar.value)==='B'?'B':'M',true);sync();
+if(mq){var re=function(){if(cur)svg.setAttribute('viewBox',vb(cur).join(' '))};mq.addEventListener?mq.addEventListener('change',re):mq.addListener(re)}
 })();
