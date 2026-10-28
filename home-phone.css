@@ -1,0 +1,23 @@
+/* Home phones only (t240u, Glenn's go 2026-10-28 10:21 AM ET). Every rule sits inside the phone query, so desktop is untouched.
+   1) Featured listing card: FEATURED LISTING | FOR SALE header above the photo, address / detail / price + nudging arrow under it.
+   2) Buyer's Guide, Guides & Articles, Resources: hide the small side label that repeated the h2 (same as the Search Homes fix in nbmap.css). */
+@media (max-width:640px){
+  .sp{grid-template-columns:1fr auto;grid-template-rows:auto minmax(0,1fr) auto auto auto;
+      grid-template-areas:"lab b" "ph ph" "addr addr" "spec spec" "price cta";gap:0;align-items:start}
+  .sp-meta{display:contents}
+  .sp-lab{grid-area:lab;align-self:stretch;display:flex;align-items:flex-end;margin:0;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .sp-b{grid-area:b;align-self:stretch;display:flex;align-items:flex-end;justify-content:flex-end;margin:0;padding-bottom:12px;border-bottom:1px solid var(--line);text-align:right}
+  .sp-ph{grid-area:ph;align-self:stretch;height:auto;margin-top:16px}
+  .sp-addr{grid-area:addr;margin:0;padding-top:16px;font-size:20px}
+  .sp-spec{grid-area:spec;margin-top:4px;font-size:13px}
+  .sp-price{grid-area:price;align-self:center;margin:0;padding-top:14px;font-size:26px}
+  .sp-cta{grid-area:cta;justify-self:end;align-self:center;margin:14px 0 0;white-space:nowrap}
+  .sp-cta::after{content:"\2192" / "";display:inline-block;margin-left:8px;animation:sp-nudge 2.4s ease-in-out infinite}
+  .sp:hover .sp-cta::after,.sp:focus-visible .sp-cta::after{animation:none;transform:translateX(4px)}
+}
+@keyframes sp-nudge{0%,55%,100%{transform:translateX(0)}70%{transform:translateX(5px)}85%{transform:translateX(0)}}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){.sp-cta::after{animation:none}}
+@media (max-width:640px){
+  #buyers-guide>.side,#guides-articles>.side,#resources>.side{display:none}
+  #buyers-guide>.body,#guides-articles>.body,#resources>.body{padding-top:48px}
+}
