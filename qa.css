@@ -1,0 +1,25 @@
+/* t272u NYC Real Estate Q&A (nyc-real-estate-faq.html only). Abbey: thin rules, square corners. */
+.qa .qa-in .body{padding-bottom:clamp(32px,4vw,56px)}
+.qa h1.h2{margin:0 0 18px}
+.qa .qa-deck{max-width:46em;font-size:clamp(17px,1.3vw,19px);line-height:1.55;margin:0 0 14px}
+.qa .small{font-size:14px;line-height:1.55;color:var(--ink-2);max-width:52em;margin:0 0 10px}
+.qa .qa-toc ul{list-style:none;margin:22px 0 0;padding:16px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 22px}
+.qa .qa-toc a{font-size:13px;letter-spacing:.06em;color:var(--ink);text-underline-offset:3px}
+.qa .qa-g .side .label,.qa .qa-s .side .label{font-size:11px;letter-spacing:.1em;line-height:1.5;margin:0;font-weight:400}
+.qa .qa-q{max-width:46em;padding:0 0 28px;margin:0 0 28px;border-bottom:1px solid var(--line)}
+.qa .qa-q:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.qa h3{font-size:clamp(18px,1.4vw,21px);font-weight:400;line-height:1.35;margin:0 0 12px;scroll-margin-top:96px}
+.qa .qa-q p{margin:0 0 12px;line-height:1.65}
+.qa .qa-q p.qa-src{font-size:13px;color:var(--ink-2)}
+.qa .qa-q a,.qa .qa-cta a,.qa .qa-s a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.qa .qa-tw{overflow-x:auto;margin:6px 0 16px;border-top:1px solid var(--ink);-webkit-overflow-scrolling:touch}
+.qa .qa-tw:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.qa .qa-t{border-collapse:collapse;width:100%;min-width:520px;font-size:14px;font-variant-numeric:tabular-nums}
+.qa .qa-t caption{caption-side:top;text-align:left;font-size:12px;letter-spacing:.06em;color:var(--ink-2);padding:10px 0 8px}
+.qa .qa-t th,.qa .qa-t td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.qa .qa-t th{font-weight:500;font-size:12px;letter-spacing:.04em}
+.qa .qa-cta-t{font-size:clamp(22px,2vw,30px);font-weight:300;letter-spacing:.04em;text-transform:none;margin:0 0 14px}
+.qa .qa-cta p{max-width:46em;margin:0;line-height:1.65}
+.qa .qa-srcs{list-style:none;margin:0 0 14px;padding:0;max-width:52em}
+.qa .qa-srcs li{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5}
+@media (max-width:640px){.qa .sec{display:block}.qa .sec::before{display:none}.qa .sec>.side{padding-bottom:0}.qa .sec>.body{padding:20px var(--pad) 40px}.qa .qa-t{font-size:13px}}
