@@ -59,3 +59,19 @@
 .tb2 .article-breadcrumb a{text-decoration:none}.tb2 .article-breadcrumb a:hover{text-decoration:underline}
 @media (max-width:1000px){.tb2 .article-copy .tb-mk dl{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:640px){.tb2 .article-copy .tb-st+.tb-st{margin-top:40px}}
+.tb2 .article-copy .tb-st-tx p.tb-st-h{margin:0 0 8px}
+/* stats strip (V14_STATS preview): three medians under the byline */
+.tb2 .nb-stats{box-sizing:border-box;width:calc(100% - 80px);max-width:1240px;margin:32px auto 0;padding:18px 0 14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}   /* under the hero, on the hero's edges */
+.tb2 .nb-stats dl{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,3vw,40px)}
+.tb2 .nb-stats dl>div{display:flex;flex-direction:column;min-width:0}
+.tb2 .nb-stats dt{margin:0 0 8px;font-size:10.5px;line-height:1.35;color:var(--ink-2)}
+.tb2 .nb-stats .nb-st-v{margin:auto 0 0;font-variant-numeric:tabular-nums;font-size:clamp(17px,2.2vw,30px);font-weight:330;line-height:1.15;letter-spacing:-.01em;color:var(--ink);white-space:nowrap}
+.tb2 .nb-stats .nb-u{font-size:.55em;letter-spacing:0;margin-left:1px}
+.tb2 .nb-stats .nb-st-n{margin:6px 0 0;font-size:12px;line-height:1.35;color:var(--ink-2)}
+.tb2 .nb-stats .nb-st-src{margin:14px 0 0;font-size:12px;line-height:1.5;color:var(--ink-2)}
+.tb2 .nb-stats a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+@supports (grid-template-rows:subgrid){.tb2 .nb-stats dl>div{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0}.tb2 .nb-stats dt{align-self:end}.tb2 .nb-stats .nb-st-v{margin:0}}   /* labels, values, notes each on one line across tiles */
+@media (min-width:641px){.tb2 .nb-stats{margin-top:20px;padding:12px 0 10px}.tb2 .nb-stats dl{max-width:760px;gap:32px}.tb2 .nb-stats dt{margin-bottom:5px;font-size:10px}.tb2 .nb-stats .nb-st-v{font-size:19px}.tb2 .nb-stats .nb-st-n{margin-top:4px;font-size:11.5px}.tb2 .nb-stats .nb-st-src{margin-top:9px;font-size:11.5px}}   /* desktop: about 65% of the phone-first sizes */
+@media (min-width:641px) and (max-width:900px){.tb2 .nb-stats{width:calc(100% - 56px)}}
+@media (max-width:640px){.tb2 .nb-stats{width:calc(100% - 40px);margin-top:24px;padding:14px 0 12px}.tb2 .nb-stats dt{font-size:10px;letter-spacing:.06em}}
+@media (max-width:359px){.tb2 .nb-stats dl{grid-template-columns:minmax(0,1fr);gap:10px}.tb2 .nb-stats .nb-st-v{margin:0}}
