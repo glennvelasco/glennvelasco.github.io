@@ -1,0 +1,18 @@
+/* V14_ABOUT (Glenn 8:39/8:44 AM ET 2026-10-29): About lives on the home page. Desktop: the whole section (bio, details,
+   both stat blocks, sources) fits one viewport under the pinned bar at 1440x900 and 1280x800. Phones unchanged except the anchor. */
+#about{scroll-margin-top:0}
+@media (min-width:641px){
+  #about{scroll-margin-top:var(--sbh,calc(var(--pad)*2 + 29px))}   /* --sbh = the pinned .sbar height set by v14-site.js (75px at 1440, 68px at 1280); fallback ~ the same */
+  #about>.body{padding-top:clamp(28px,2.8vw,40px);padding-bottom:clamp(40px,4vw,64px)}
+  #about .about-grid .lede{font-size:clamp(17px,1.25vw,18px);line-height:1.5;max-width:40ch}
+  #about .ab-team{margin-top:14px;font-size:13.5px}
+  #about .facts li{padding:10px 0;font-size:14px}
+  #about .abs{margin-top:clamp(28px,2.8vw,40px)}
+  #about .abs-g{padding-top:clamp(18px,1.7vw,26px)}
+  #about .abs2 .abs-g{padding-bottom:clamp(16px,1.6vw,24px)}
+  #about .abs-k{margin-bottom:clamp(14px,1.4vw,20px)}
+  #about .abs2 .abs-r{row-gap:clamp(20px,2vw,30px)}
+  #about .abs2 .abs-n{font-size:clamp(32px,2.9vw,46px)}
+  #about .abs-t{margin-top:9px}
+  #about .abs2 .abs-src{margin-top:clamp(12px,1.2vw,18px)}
+}

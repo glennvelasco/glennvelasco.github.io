@@ -1,0 +1,25 @@
+/* V14_WALK: Glenn's photo + contact beside the closing "work with me" text (Glenn t306u/t307u 2026-11-03). Abbey: square corners, thin rules, no brass. */
+.ww{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:32px}
+.ww-photo{margin:0;padding:0}
+.ww-photo picture,.ww-photo img{display:block;width:100%;border-radius:0}
+.ww-photo img{height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 40%;background:#e9e6e0}
+.ww-text>:first-child{margin-top:0}
+.ww-card{margin-top:28px;padding-top:20px;border-top:1px solid #15171a;font-size:16px;line-height:1.5}
+.ww-card p{margin:0}
+.ww-name{font-size:20px;font-weight:400;letter-spacing:-.005em}
+.ww-role{margin-top:4px!important;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#4a4e55}
+.ww-dl{margin:16px 0 0;padding:0}
+.ww-dl>div{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid rgba(21,23,26,.16)}
+.ww-card .ww-dl dt{margin:0;border:0;padding:3px 0 0;font-size:12px;font-weight:400;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:#4a4e55}
+.ww-card .ww-dl dd{margin:0;font-size:16px;line-height:1.5;overflow-wrap:anywhere}
+.ww-dl a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;display:inline-block;padding:2px 0}
+.ww-dl a:hover{text-decoration-thickness:2px}
+.ww-dl a:focus-visible{outline:2px solid #15171a;outline-offset:3px}
+.g-cta .ww{margin-top:0}
+@media (min-width:900px){
+  .ww{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,4vw,56px);align-items:stretch}
+  .g-cta .ww,.qa-cta .ww{grid-template-columns:minmax(0,5fr) minmax(0,6fr);max-width:1120px}
+  .ww-photo,.ww-photo picture{height:100%}
+  .ww-photo img{height:100%;min-height:380px;aspect-ratio:auto;object-position:50% 45%}
+  .ww-text{align-self:center}
+}
