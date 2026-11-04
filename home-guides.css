@@ -77,33 +77,59 @@
 }
 @media(prefers-reduced-motion:reduce){.journey-rail:after,.journey-dot,.journey-controls button,.hub-card-link span{transition:none}}
 @media print{.journey-track{display:block;overflow:visible}.journey-card{break-inside:avoid}.journey-controls{display:none}.valuation-faq::details-content,.valuation-answers details::details-content{display:block!important;content-visibility:visible!important}}
-/* A quiet illustrated journey; all animation is optional and decorative. */
-.journey-heading{margin-bottom:88px}
+/* NYC architectural journey. Scoped here; the site's cursor stays unchanged. */
+.journey-heading{margin-bottom:94px}
 .journey-hint{display:block;font-size:12px;margin-top:10px}
-.journey-walker{position:absolute;z-index:2;width:43px;height:57px;left:calc(var(--walker-step,0) * (100% / 6) - 3px);top:-58px;pointer-events:none;transition:left .55s cubic-bezier(.25,.65,.3,1)}
-.journey-walker svg{display:block;width:100%;height:100%;overflow:visible}
-.walker-shadow{opacity:.12}
-.walker-leg{transform-origin:32px 49px}.walker-arm{transform-origin:32px 27px}
-.is-walking .walker-leg-front,.is-walking .walker-arm-back{animation:journey-stride .36s ease-in-out infinite alternate}
-.is-walking .walker-leg-back,.is-walking .walker-arm-front{animation:journey-stride .36s ease-in-out infinite alternate-reverse}
-.is-walking .walker-person{animation:journey-bob .18s ease-in-out infinite alternate}
-.journey-art{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-.journey-art .journey-number{font-size:22px;letter-spacing:-.04em;opacity:.35;line-height:1}
-.journey-art svg{width:100%;max-width:210px;overflow:visible}
-.scene-faint{opacity:.22}
-.in-view .is-active .scene-handshake{animation:journey-greet .45s ease-in-out 3;transform-origin:100px 80px}
-.in-view .is-active .scene-stroll{animation:journey-stroll 1.5s ease-in-out both}
-.in-view .is-active .scene-pen{animation:journey-write 1.3s ease-in-out both}
-.in-view .is-active .scene-sign,.in-view .is-active .scene-check{stroke-dasharray:90;animation:journey-draw 1.5s ease both}
-.in-view .is-active .scene-review{animation:journey-look 1.4s ease-in-out both}
-.in-view .is-active .scene-key{animation:journey-key 1.6s ease-in-out both;transform-origin:146px 69px}
-@keyframes journey-stride{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
-@keyframes journey-bob{to{transform:translateY(-1.7px)}}
-@keyframes journey-greet{50%{transform:translateY(3px)}}
-@keyframes journey-stroll{from{transform:translateX(-15px)}to{transform:translateX(0)}}
-@keyframes journey-write{0%{transform:translate(-10px,5px)}50%{transform:translate(0,-4px)}100%{transform:translate(0,0)}}
-@keyframes journey-draw{from{stroke-dashoffset:90}to{stroke-dashoffset:0}}
-@keyframes journey-look{0%{transform:translate(-10px,-8px)}60%{transform:translate(3px,0)}100%{transform:translate(0,0)}}
-@keyframes journey-key{0%{transform:rotate(-14deg)}40%{transform:rotate(12deg)}75%{transform:rotate(-6deg)}100%{transform:rotate(0)}}
-@media(max-width:640px){.journey-heading{margin-bottom:82px}.journey-walker{width:36px;height:48px;top:-49px;left:calc(var(--walker-step,0) * (100% / 6) - 3px)}.journey-art{flex-direction:row;align-items:flex-end;gap:20px}.journey-art svg{width:110px;height:83px}.journey-art .journey-number{font-size:32px}.journey-card{gap:20px}}
-@media(prefers-reduced-motion:reduce){.journey-walker{transition:none}.buyer-journey svg *{animation:none!important}.journey-track{scroll-behavior:auto}}
+.journey-mobile-hint{display:none}
+.journey-rail{margin-bottom:32px}
+.journey-rail:before,.journey-rail:after{top:26px}
+.journey-rail a{font-size:13px;gap:12px;min-width:52px}
+.journey-dot{width:52px;height:52px;border-radius:2px;font-size:20px;font-weight:400;background:var(--paper);border-color:#b8b7ad}
+.journey-rail a[aria-current="step"] .journey-dot{background:#343f3b;border-color:#343f3b;color:#fff}
+.journey-rail:after{background:#697b6f}
+.journey-pigeon{position:absolute;z-index:2;left:-16px;top:-66px;width:84px;height:63px;pointer-events:none;transition:left .7s cubic-bezier(.2,.65,.3,1)}
+.journey-pigeon svg{display:block;width:100%;height:100%;overflow:visible}
+.pigeon-direction{transform-origin:56px 42px;transition:transform .12s}
+.facing-left .pigeon-direction{transform:scaleX(-1)}
+.pigeon-wing{transform-origin:55px 49px}
+.is-flying .pigeon-body{animation:pigeon-flight .8s ease both}
+.is-flying .pigeon-wing{animation:pigeon-flap .18s ease-in-out infinite alternate}
+.is-flying .pigeon-feet{opacity:.2}
+.journey-track{position:relative;gap:0;scrollbar-width:none}
+.journey-track::-webkit-scrollbar{display:none}
+.journey-card{grid-template-columns:minmax(0,1.05fr) minmax(0,1.3fr);align-items:center;gap:clamp(28px,4vw,68px);padding:34px 0;flex-basis:100%}
+.journey-art{align-self:stretch;display:flex;align-items:center;min-width:0}
+.city-scene{display:block;width:100%;height:auto;border:1px solid #dedbd0;max-width:540px}
+.journey-card>div:last-child{padding-right:24px}
+.journey-card h3{font-size:clamp(26px,2.65vw,40px)}
+.journey-card p:not(.label){font-size:16px;line-height:1.7;max-width:47ch}
+.journey-card .label{color:#626b61;margin-bottom:16px}
+.journey-controls button{border-radius:2px}
+.city-tree,.city-awning{transform-box:view-box}
+.in-view .is-active .city-tree{animation:city-breeze 2.6s ease-in-out 2}
+.in-view .is-active .city-awning{animation:city-awning 2s ease-in-out 2}
+.in-view .is-active .city-steam{animation:city-steam 3s ease-out 2;transform-origin:center}
+.in-view .is-active .city-lit{animation:city-light 1.8s ease-out forwards}
+.in-view .is-active .city-door{animation:city-welcome 2s ease-out forwards}
+@keyframes pigeon-flight{0%,100%{transform:translateY(0)}35%,65%{transform:translateY(-21px)}}
+@keyframes pigeon-flap{from{transform:rotate(-12deg) scaleY(.7)}to{transform:rotate(-62deg) scaleY(1.3)}}
+@keyframes city-breeze{0%,100%{transform:rotate(0)}40%{transform:rotate(1.3deg)}70%{transform:rotate(-.7deg)}}
+@keyframes city-awning{0%,100%{transform:skewX(0)}50%{transform:skewX(1.5deg)}}
+@keyframes city-steam{0%{opacity:0;transform:translateY(5px)}35%{opacity:.8}100%{opacity:0;transform:translateY(-15px)}}
+@keyframes city-light{0%,35%{fill:#66736f}100%{fill:#d5bd82}}
+@keyframes city-welcome{0%,25%{transform:scaleX(1)}100%{transform:scaleX(.55)}}
+@media(max-width:640px){
+ .journey-heading{margin-bottom:82px}.journey-desktop-hint{display:none}.journey-mobile-hint{display:flex;align-items:center;gap:12px}.journey-mobile-hint span{font-size:17px}
+ .journey-rail a{min-width:44px;font-size:10px;gap:10px}.journey-dot{width:44px;height:46px;font-size:18px}.journey-rail:before,.journey-rail:after{top:23px}
+ .journey-pigeon{width:68px;height:51px;top:-54px;left:-12px}
+ .journey-track{gap:16px;scroll-padding:0;overscroll-behavior-x:contain}
+ .journey-track:after{content:"";flex:0 0 calc(12% - 16px)}
+ .journey-card{flex-basis:88%;grid-template-columns:1fr;align-content:start;gap:24px;padding:24px 0 30px}
+ .journey-card>div:last-child{padding-right:8px}.journey-card h3{font-size:27px}.journey-card .label{font-size:10px;margin-bottom:12px}
+ .journey-card p:not(.label){font-size:15px;line-height:1.65}.journey-art{display:block}.city-scene{max-width:none}
+ .journey-track.is-nudging{scroll-snap-type:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .journey-pigeon,.pigeon-direction{transition:none}.buyer-journey svg *{animation:none!important}.journey-track{scroll-behavior:auto}.is-flying .pigeon-feet{opacity:1}
+}
+@media print{.journey-pigeon{display:none}.journey-track:after{display:none}.city-scene{max-width:300px}}
