@@ -11,3 +11,7 @@
 .article-copy .guide-disclosure-body p,.article-copy .guide-disclosure-body li{font-size:15px;line-height:1.7}
 .article-copy .guide-disclosure-body h3{font-size:20px}
 @media print{.guide-disclosure::details-content{display:block!important;content-visibility:visible!important}.guide-disclosure-body{display:block!important}.guide-disclosure-toggle{display:none}}
+
+/* FAQs retain full answer content in HTML, without a script or fetch. */
+.guide-faq + .guide-faq{margin-top:0;border-top:0}
+.article-copy .guide-faq>summary h3{margin:0;font-size:18px;line-height:1.45;font-weight:450}
