@@ -135,7 +135,7 @@
 @media print{.journey-pigeon{display:none}.journey-track:after{display:none}.city-scene{max-width:300px}}
 
 /* Subject-specific stage illustrations, animated once on entry. */
-.deal-handshake{transform-origin:180px 125px}
+.deal-handshake{transform-origin:180px 126px}
 .in-view .is-active .deal-handshake{animation:deal-greet 1s ease-in-out 2}
 .in-view .is-active .offer-back{animation:offer-stack-back .7s ease-out both}
 .in-view .is-active .offer-middle{animation:offer-stack-middle .8s .15s ease-out both}
@@ -149,7 +149,7 @@
 .in-view .is-active .tick-two{animation-delay:.45s}.in-view .is-active .tick-three{animation-delay:.9s}
 .antique-key{transform-origin:180px 68px}
 .in-view .is-active .antique-key{animation:key-arrive 1.6s ease-out both}
-@keyframes deal-greet{0%,100%{transform:translateY(0)}50%{transform:translateY(4px) rotate(-1deg)}}
+@keyframes deal-greet{0%,100%{transform:translateY(0)}50%{transform:translateY(2px) rotate(-1deg)}}
 @keyframes offer-stack-back{from{transform:translate(16px,8px);opacity:0}to{transform:none;opacity:1}}
 @keyframes offer-stack-middle{from{transform:translate(-12px,-7px);opacity:0}to{transform:none;opacity:1}}
 @keyframes offer-stack-front{from{transform:translateY(-13px);opacity:0}to{transform:none;opacity:1}}
