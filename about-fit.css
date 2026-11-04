@@ -16,3 +16,16 @@
   #about .abs-t{margin-top:9px}
   #about .abs2 .abs-src{margin-top:clamp(12px,1.2vw,18px)}
 }
+
+/* About: align the biography and facts to the portrait's center, with a visible introduction. */
+#about .about-grid.has-portrait{align-items:center}
+#about .about-bio{min-width:0}
+#about .about-eyebrow{font-size:11px;letter-spacing:.12em;margin:0 0 12px;color:var(--ink-2)}
+#about .about-bio h2{font-weight:350;font-size:clamp(25px,2.3vw,36px);line-height:1.12;letter-spacing:-.025em;margin:0 0 18px}
+#about .about-grid .lede{font-size:clamp(16px,1.15vw,18px);line-height:1.5;max-width:43ch;margin:0}
+#about .about-story{font-size:15px;line-height:1.55;color:var(--ink-2);margin:14px 0 0;max-width:48ch}
+#about .ab-team{font-size:12.5px;line-height:1.5;color:var(--ink-2);margin:14px 0 0;max-width:48ch}
+#about .about-talk{display:inline-flex;gap:12px;align-items:center;margin-top:18px;padding:6px 0;font-size:13px}
+@media(min-width:1001px){#about .about-grid.has-portrait{column-gap:clamp(32px,4vw,64px)}}
+@media(max-width:1000px) and (min-width:641px){#about .about-grid.has-portrait{row-gap:28px}#about .facts{grid-template-columns:max-content minmax(0,1fr)}}
+@media(max-width:640px){#about .about-bio h2{font-size:30px}#about .about-grid .lede{font-size:18px}#about .about-story{font-size:16px}#about .about-talk{font-size:15px;min-height:44px}}
