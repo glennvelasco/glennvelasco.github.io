@@ -1,0 +1,13 @@
+/* Optional reading within the buyer guides. */
+.guide-disclosure{margin:28px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.guide-disclosure>summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;list-style:none;cursor:pointer;font-size:16px;line-height:1.4}
+.guide-disclosure>summary::-webkit-details-marker{display:none}
+.guide-disclosure>summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.guide-disclosure-toggle{position:relative;flex:0 0 16px;height:16px}
+.guide-disclosure-toggle:before,.guide-disclosure-toggle:after{content:"";position:absolute;left:0;top:7px;width:16px;height:1px;background:currentColor}
+.guide-disclosure-toggle:after{transform:rotate(90deg)}
+.guide-disclosure[open] .guide-disclosure-toggle:after{transform:none}
+.guide-disclosure-body{padding:4px 0 8px}
+.article-copy .guide-disclosure-body p,.article-copy .guide-disclosure-body li{font-size:15px;line-height:1.7}
+.article-copy .guide-disclosure-body h3{font-size:20px}
+@media print{.guide-disclosure::details-content{display:block!important;content-visibility:visible!important}.guide-disclosure-body{display:block!important}.guide-disclosure-toggle{display:none}}
