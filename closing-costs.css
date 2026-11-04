@@ -22,7 +22,7 @@
 .cost-table tbody th{font-weight:400}
 .cost-value{display:block;font-weight:500}
 .cost-detail{display:block;font-size:12.5px;line-height:1.5;color:var(--ink-2);margin-top:7px}
-.article-copy a.cost-brackets-link{display:inline-flex;align-items:center;gap:12px;margin-top:12px;padding:10px 14px;border:1px solid var(--line);font-size:12px;line-height:1.5;color:var(--ink);text-decoration:none}
+.article-copy a.cost-brackets-link{display:inline-flex;align-items:center;gap:12px;margin-top:12px;padding:10px 14px;border:1px solid var(--line);font-size:12px;line-height:1.5;color:var(--ink);text-decoration:underline;text-underline-offset:.22em}
 .article-copy a.cost-brackets-link:hover{border-color:var(--ink)}
 .cost-brackets-link:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 #cost-panel-3{scroll-margin-top:100px}
