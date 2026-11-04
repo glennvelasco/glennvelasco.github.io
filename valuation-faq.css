@@ -1,0 +1,5 @@
+/* Clear question/answer hierarchy in both valuation FAQ presentations. */
+.valuation-answers>details>summary,.valuation-page-faq>details>summary{font-size:18px;font-weight:550;line-height:1.45;color:var(--ink);padding:20px 0}
+.valuation-answers>details>p,.valuation-page-faq>details>p{font-size:15px;font-weight:350;line-height:1.8;color:var(--ink-2);max-width:66ch;margin:0 0 26px;padding:2px 18px 2px 16px;border-left:2px solid var(--line)}
+.valuation-answers>details[open]>summary,.valuation-page-faq>details[open]>summary{padding-bottom:14px}
+@media(max-width:640px){.valuation-answers>details>summary,.valuation-page-faq>details>summary{font-size:17px}.valuation-answers>details>p,.valuation-page-faq>details>p{padding-right:4px}}
