@@ -133,3 +133,28 @@
  .journey-pigeon,.pigeon-direction{transition:none}.buyer-journey svg *{animation:none!important}.journey-track{scroll-behavior:auto}.is-flying .pigeon-feet{opacity:1}
 }
 @media print{.journey-pigeon{display:none}.journey-track:after{display:none}.city-scene{max-width:300px}}
+
+/* Subject-specific stage illustrations, animated once on entry. */
+.deal-handshake{transform-origin:180px 125px}
+.in-view .is-active .deal-handshake{animation:deal-greet 1s ease-in-out 2}
+.in-view .is-active .offer-back{animation:offer-stack-back .7s ease-out both}
+.in-view .is-active .offer-middle{animation:offer-stack-middle .8s .15s ease-out both}
+.in-view .is-active .offer-front{animation:offer-stack-front .9s .3s ease-out both}
+.in-view .is-active .offer-signature{stroke-dasharray:95;animation:offer-sign 1s .9s ease both}
+.in-view .is-active .banker-glow{animation:banker-light 1.6s ease-out both}
+.lamp-chain{transform-origin:273px 96px}
+.in-view .is-active .lamp-chain{animation:lamp-settle 1.5s ease-out both}
+.approval-tick{stroke-dasharray:28}
+.in-view .is-active .approval-tick{animation:approval-mark .65s ease-out both}
+.in-view .is-active .tick-two{animation-delay:.45s}.in-view .is-active .tick-three{animation-delay:.9s}
+.antique-key{transform-origin:180px 68px}
+.in-view .is-active .antique-key{animation:key-arrive 1.6s ease-out both}
+@keyframes deal-greet{0%,100%{transform:translateY(0)}50%{transform:translateY(4px) rotate(-1deg)}}
+@keyframes offer-stack-back{from{transform:translate(16px,8px);opacity:0}to{transform:none;opacity:1}}
+@keyframes offer-stack-middle{from{transform:translate(-12px,-7px);opacity:0}to{transform:none;opacity:1}}
+@keyframes offer-stack-front{from{transform:translateY(-13px);opacity:0}to{transform:none;opacity:1}}
+@keyframes offer-sign{from{stroke-dashoffset:95}to{stroke-dashoffset:0}}
+@keyframes banker-light{from{opacity:0}to{opacity:.3}}
+@keyframes lamp-settle{0%{transform:rotate(-7deg)}35%{transform:rotate(5deg)}70%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
+@keyframes approval-mark{from{stroke-dashoffset:28}to{stroke-dashoffset:0}}
+@keyframes key-arrive{0%{transform:rotate(-9deg)}40%{transform:rotate(5deg)}75%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
