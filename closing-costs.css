@@ -1,0 +1,35 @@
+/* Closing-cost reference: existing editorial type, warm background and fine rules. */
+.closing-costs{margin:40px 0 48px;min-width:0}
+.closing-costs .cost-checked{font-size:10px;letter-spacing:.1em;margin-bottom:12px}
+.article-copy .closing-costs>h3{font-size:clamp(26px,3vw,36px);font-weight:400;line-height:1.15;letter-spacing:-.025em;margin:0 0 20px}
+.cost-panel{border-top:1px solid var(--line);margin:0}
+.cost-panel:last-of-type{border-bottom:1px solid var(--line)}
+.cost-panel>summary{display:flex;align-items:center;justify-content:space-between;gap:22px;cursor:pointer;list-style:none;padding:24px 0}
+.cost-panel>summary::-webkit-details-marker{display:none}
+.cost-panel-title{display:block;font-size:23px;line-height:1.2;font-weight:400;letter-spacing:-.02em}
+.cost-panel-deck{display:block;font-size:13px;line-height:1.5;color:var(--ink-2);margin-top:7px}
+.cost-toggle{flex:0 0 18px;width:18px;height:18px;position:relative}
+.cost-toggle:before,.cost-toggle:after{content:"";position:absolute;background:currentColor;left:0;top:8px;width:18px;height:1px}
+.cost-toggle:after{transform:rotate(90deg)}
+.cost-panel[open]>summary .cost-toggle:after{transform:rotate(0)}
+.cost-panel>summary:focus-visible,.cost-sources>summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.cost-panel-body{padding:0 0 28px;min-width:0}
+.cost-table{width:100%;table-layout:fixed;border-collapse:collapse;text-align:left;font-size:15px;line-height:1.45}
+.cost-table caption{text-align:left;font-size:13px;line-height:1.5;color:var(--ink-2);padding:0 0 18px}
+.cost-table th,.cost-table td{vertical-align:top;padding:17px 0;border-bottom:1px solid var(--line);overflow-wrap:break-word}
+.cost-table th:first-child{width:34%;padding-right:22px}
+.cost-table thead th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;border-top:1px solid var(--ink)}
+.cost-table tbody th{font-weight:400}
+.cost-value{display:block;font-weight:500}
+.cost-detail{display:block;font-size:12.5px;line-height:1.5;color:var(--ink-2);margin-top:7px}
+.article-copy .cost-panel-body>p,.article-copy .cost-footnote{font-size:14px;line-height:1.6}
+.article-copy .cost-footnote{margin-top:20px}
+.cost-tax-table th:first-child{width:64%}
+.cost-example{border-left:2px solid var(--ink);padding:4px 0 4px 22px;margin:32px 0}
+.article-copy .cost-example h4{font-size:19px;font-weight:500;margin:0 0 10px;line-height:1.3}
+.article-copy .cost-example p{font-size:15px;line-height:1.6;margin:0}
+.cost-sources{font-size:13px;line-height:1.6;margin-top:28px}
+.cost-sources>summary{cursor:pointer;padding:12px 0}
+.article-copy .cost-sources p,.article-copy .cost-sources li{font-size:13px;line-height:1.6}
+@media(max-width:640px){.closing-costs{margin-top:30px}.cost-panel-title{font-size:21px}.cost-panel>summary{padding:22px 0}.cost-table{font-size:14px}.cost-table th:first-child{width:36%;padding-right:14px}.cost-tax-table th:first-child{width:62%}.cost-detail{font-size:12px}.cost-example{padding-left:16px}}
+@media print{.cost-panel::details-content,.cost-sources::details-content{display:block!important;content-visibility:visible!important}.cost-panel-body{display:block!important}.cost-toggle{display:none}.cost-table tr{break-inside:avoid}}
