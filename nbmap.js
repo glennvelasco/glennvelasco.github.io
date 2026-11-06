@@ -39,7 +39,7 @@ function say(){var n=P.length;
  if(!n){rd.innerHTML='<span>Pick one or more neighborhoods on the map, or use the list</span>';return}
  rd.innerHTML='<b></b><span></span>';
  if(n>1){rd.firstChild.textContent=n+' neighborhoods';rd.lastChild.textContent=' · selected';return}
- var s=P[0];rd.firstChild.textContent=name(s);rd.lastChild.textContent=s==='nolita-manhattan-ny'?' · shown within SoHo–Little Italy':s==='central-park-south-manhattan-ny'?' · not drawn on the map':' · selected'}
+ var s=P[0];rd.firstChild.textContent=name(s);rd.lastChild.textContent=s==='nolita-manhattan-ny'?' · shown within SoHo–Little Italy':!by[s]?' · not drawn on the map':' · selected'}
 function render(){mark('on',P);var n=P.length;
  if(!n)ar.value=scope;else if(n===1)ar.value=P[0];else{mo.textContent=name(P[0])+' + '+(n-1)+' more';mo.selected=true}
  ul.innerHTML='';P.forEach(function(s){var li=document.createElement('li'),b=document.createElement('button');

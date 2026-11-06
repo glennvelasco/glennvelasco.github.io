@@ -1,6 +1,9 @@
 /* t218u mockup: Search Homes quick search -> Compass search URL (format read from Compass's own filter UI) */
 (function(){var f=document.getElementById('sxf');if(!f)return;
 var mn=f.querySelector('#sx-mn'),mx=f.querySelector('#sx-mx'),bd=f.querySelector('#sx-b'),ar=f.querySelector('#sx-a');
+/* Neighborhood guide links preselect only a known search option. The map reads this selection on startup. */
+var requested=new URLSearchParams(window.location.search).get('neighborhood');
+if(requested&&[].some.call(ar.options,function(o){return o.value===requested})){ar.value=requested}
 function fm(n){return n>=1e6?'$'+(n/1e6)+'M':n>=1e5?'$'+(n/1e3)+'K':'$'+n.toLocaleString('en-US')}
 function kind(){var r=f.querySelector('input[name="sx-k"]:checked');return r?r.value:'sale'}
 function fill(sel,none,vals){var keep=sel.value;sel.innerHTML='';var o=document.createElement('option');o.value='';o.textContent=none;sel.appendChild(o);

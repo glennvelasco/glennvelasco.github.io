@@ -75,3 +75,12 @@
 @media (min-width:641px) and (max-width:900px){.tb2 .nb-stats{width:calc(100% - 56px)}}
 @media (max-width:640px){.tb2 .nb-stats{width:calc(100% - 40px);margin-top:24px;padding:14px 0 12px}.tb2 .nb-stats dt{font-size:10px;letter-spacing:.06em}}
 @media (max-width:359px){.tb2 .nb-stats dl{grid-template-columns:minmax(0,1fr);gap:10px}.tb2 .nb-stats .nb-st-v{margin:0}}
+
+/* Neighborhood search beside each guide; stacked above the contents on phones. */
+.tb2 .nb-search{padding:2px 0 24px;margin:0 0 22px;border-bottom:1px solid var(--line)}
+.tb2 .nb-search .label{font-size:10px;line-height:1.5;margin:0 0 12px;color:var(--ink-2)}
+.tb2 .nb-search h2{font-size:25px;font-weight:400;line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}
+.tb2 .nb-search p:not(.label){font-size:14px;line-height:1.55;color:var(--ink-2);margin:0 0 14px}
+.tb2 .article-index .nb-search-link{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+@media(min-width:641px){.tb2 .article-index{max-height:calc(100vh - 154px);overflow-y:auto;padding-right:8px;scrollbar-width:thin}}
+@media(max-width:640px){.tb2 .nb-search{padding-bottom:22px;margin-bottom:22px}.tb2 .nb-search h2{font-size:28px}.tb2 .article-index .nb-search-link{min-height:44px;box-sizing:border-box}}
