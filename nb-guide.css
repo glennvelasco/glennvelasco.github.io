@@ -84,3 +84,13 @@
 .tb2 .article-index .nb-search-link{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px}
 @media(min-width:641px){.tb2 .article-index{max-height:calc(100vh - 154px);overflow-y:auto;padding-right:8px;scrollbar-width:thin}}
 @media(max-width:640px){.tb2 .nb-search{padding-bottom:22px;margin-bottom:22px}.tb2 .nb-search h2{font-size:28px}.tb2 .article-index .nb-search-link{min-height:44px;box-sizing:border-box}}
+
+/* Practical viewing notes use the guide's existing type and ruled layout. */
+.tb2 .nb-viewing{margin:28px 0 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tb2 .nb-viewing summary{display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;font-size:17px;font-weight:500;line-height:1.4;list-style:none}
+.tb2 .nb-viewing summary::-webkit-details-marker{display:none}
+.tb2 .nb-viewing summary::after{content:'+';font-size:24px;font-weight:300;flex-shrink:0}
+.tb2 .nb-viewing[open] summary::after{content:'−'}
+.tb2 .nb-viewing>div{padding-top:12px}
+.tb2 .nb-viewing h3{font-size:20px;line-height:1.4;margin:20px 0 10px}
+.tb2 .nb-viewing .article-source{margin-bottom:0}
