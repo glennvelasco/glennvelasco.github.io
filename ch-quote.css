@@ -1,6 +1,7 @@
 /* Chelsea-only accessory quote (V14_CHQ). Linked from chelsea.html only.
-   Desktop: under “In this guide” in the left column. Phones: after Sources, before the footer.
-   One figure in the DOM; placement is a grid/flex order. No layout widening. */
+   Desktop: under “In this guide” in the left column, in one sticky stack so the
+   menu stays put and the quote stays under it. Phones: after Sources, before the
+   footer. One figure in the DOM; placement is grid/flex order. No layout widening. */
 @font-face{
   font-family:"Newsreader";
   src:url("fonts/newsreader-italic.woff2?v=20261027r") format("woff2");
@@ -8,9 +9,7 @@
   font-weight:400;
   font-display:swap;
 }
-.tb2 .article-layout > .ch-col{min-width:0;align-self:start}
-/* Don’t stick the TOC on this page: a stuck menu would slide over the quote in the same column. Other guides are unchanged. */
-.tb2 .ch-col .article-index{position:static}
+.tb2 .article-layout > .ch-left{min-width:0;align-self:start}
 .ch-quote{margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--line);border-bottom:0;background:none;box-shadow:none}
 .ch-quote blockquote{margin:0;padding:0;border:0}
 .ch-quote blockquote p{
@@ -34,19 +33,41 @@
   line-height:1.45;
   color:var(--ink-2);
 }
-/* Desktop: keep the existing 2-col widths; place the quote under the menu (row-gap 0 so the 64/32px grid gap doesn’t open between TOC and quote). */
+/* Desktop: one sticky left stack. The menu scrolls inside if needed so the quote stays visible under it. */
 @media(min-width:641px){
-  .tb2 .article-layout{row-gap:0;grid-template-rows:auto 1fr}
-  .tb2 .article-layout > .ch-col{grid-column:1;grid-row:1}
-  .tb2 .article-layout > .ch-quote{grid-column:1;grid-row:2;align-self:start}
-  .tb2 .article-layout > .article-copy{grid-column:2;grid-row:1 / -1}
+  .tb2 .article-layout{row-gap:0}
+  .tb2 .article-layout > .ch-left{
+    grid-column:1;
+    grid-row:1;
+    position:sticky;
+    top:130px;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    max-height:calc(100vh - 154px);
+    background:var(--paper);
+  }
+  .tb2 .ch-left .ch-col{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-y:auto;
+    scrollbar-width:thin;
+  }
+  .tb2 .ch-left .article-index{
+    position:static;
+    max-height:none;
+    overflow:visible;
+  }
+  .tb2 .ch-left .ch-quote{flex:0 0 auto}
+  .tb2 .article-layout > .article-copy{grid-column:2;grid-row:1}
 }
-/* Phones: after the article (Sources), before the site footer. Same quiet type, not a new section. */
+/* Phones: unwrap the stack so the quote can sit after the article (Sources), before the site footer. */
 @media(max-width:640px){
   .tb2 .article-layout{display:flex;flex-direction:column}
-  .tb2 .article-layout > .ch-col{order:1}
-  .tb2 .article-layout > .article-copy{order:2}
-  .tb2 .article-layout > .ch-quote{order:3;margin:24px 0 0;padding:18px 0 0}
+  .tb2 .article-layout > .ch-left{display:contents}
+  .tb2 .article-layout .ch-col{order:1}
+  .tb2 .article-layout .article-copy{order:2}
+  .tb2 .article-layout .ch-quote{order:3;margin:24px 0 0;padding:18px 0 0}
   .ch-quote blockquote p{font-size:15px}
 }
 @media print{
