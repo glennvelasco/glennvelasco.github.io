@@ -1,3 +1,27 @@
+/* Contact measurement: count contact intent separately from confirmed form leads.
+   Send only fixed labels, never link query strings or visitor-entered form values. */
+(function(){
+  if(window.gvContactAnalytics)return;
+  function track(name,formName){
+    if(typeof window.gtag!=='function')return;
+    var params={page_language:document.documentElement.lang||'en',transport_type:'beacon'};
+    if(formName==='contact'||formName==='valuation')params.form_name=formName;
+    try{window.gtag('event',name,params)}catch(e){/* Analytics must not interrupt contact actions. */}
+  }
+  window.gvContactAnalytics={
+    success:function(name){if(name==='contact'||name==='valuation')track('generate_lead',name)},
+    error:function(name){if(name==='contact'||name==='valuation')track('lead_form_error',name)}
+  };
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||!e.target.closest)return;
+    var a=e.target.closest('a[href]');if(!a)return;
+    var url;try{url=new URL(a.href,location.href)}catch(err){return}
+    if(url.protocol==='tel:'&&url.pathname.replace(/[^0-9]/g,'')==='19293923707')track('contact_phone');
+    else if(url.protocol==='mailto:'&&url.pathname.toLowerCase()==='glenn.velasco@compass.com')track('contact_email');
+    else if(url.protocol==='https:'&&url.hostname==='wa.me'&&url.pathname==='/19293923707')track('contact_whatsapp');
+  });
+})();
+
 /* Resources dropdown: hover/focus on desktop (CSS), tap to open on touch, Esc to close; keeps aria-expanded true to state. */
 (function(){
   var L=[].slice.call(document.querySelectorAll('a.res'));if(!L.length)return;
@@ -148,15 +172,15 @@
   f.querySelectorAll('input[required]:not([type=radio]),textarea[required]').forEach(function(el){el.addEventListener('input',function(){if(el.getAttribute('aria-invalid')==='true')msg(el,'')})});
   f.querySelectorAll('.opts input').forEach(function(r){r.addEventListener('change',function(){lk.hidden=true;opts.setAttribute('aria-invalid','false')})});
   f.setAttribute('novalidate','');
-  f.addEventListener('submit',function(e){e.preventDefault();if(!check())return;
+  f.addEventListener('submit',function(e){e.preventDefault();if(send.disabled||!check())return;
     var data={};new FormData(f).forEach(function(v,k){data[k]=v});
     var lines=['Name: '+data.name,'Email: '+data.email,'Phone: '+(data.phone||''),"I'm looking to: "+(data.looking_to||''),'','Message:',data.message];
     mail.href='mailto:glenn.velasco@compass.com?subject='+encodeURIComponent('Website contact')+'&body='+encodeURIComponent(lines.join('\n'));
     err.hidden=true;send.disabled=true;send.setAttribute('aria-busy','true');send.textContent='Sending…';
     fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||!(j.success===true||j.success==='true'))throw new Error(j.message||('HTTP '+r.status))})})
-      .then(function(){f.hidden=true;thanks.hidden=false;thanks.focus()})
-      .catch(function(){err.hidden=false;err.focus()})
+      .then(function(){f.hidden=true;thanks.hidden=false;thanks.focus();if(!data._honey&&window.gvContactAnalytics)window.gvContactAnalytics.success('contact')})
+      .catch(function(){err.hidden=false;err.focus();if(window.gvContactAnalytics)window.gvContactAnalytics.error('contact')})
       .then(function(){send.disabled=false;send.removeAttribute('aria-busy');send.textContent='Send message'});
   });
 })();
