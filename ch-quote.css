@@ -1,0 +1,54 @@
+/* Chelsea-only accessory quote (V14_CHQ). Linked from chelsea.html only.
+   Desktop: under “In this guide” in the left column. Phones: after Sources, before the footer.
+   One figure in the DOM; placement is a grid/flex order. No layout widening. */
+@font-face{
+  font-family:"Newsreader";
+  src:url("fonts/newsreader-italic.woff2?v=20261027r") format("woff2");
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+}
+.tb2 .article-layout > .ch-col{min-width:0;align-self:start}
+/* Don’t stick the TOC on this page: a stuck menu would slide over the quote in the same column. Other guides are unchanged. */
+.tb2 .ch-col .article-index{position:static}
+.ch-quote{margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--line);border-bottom:0;background:none;box-shadow:none}
+.ch-quote blockquote{margin:0;padding:0;border:0}
+.ch-quote blockquote p{
+  margin:0;
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:16px;
+  line-height:1.5;
+  letter-spacing:0;
+  color:var(--ink);
+  max-width:none;
+}
+.ch-quote a{color:inherit}
+.ch-quote figcaption{
+  margin:10px 0 0;
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--ink-2);
+}
+/* Desktop: keep the existing 2-col widths; place the quote under the menu (row-gap 0 so the 64/32px grid gap doesn’t open between TOC and quote). */
+@media(min-width:641px){
+  .tb2 .article-layout{row-gap:0;grid-template-rows:auto 1fr}
+  .tb2 .article-layout > .ch-col{grid-column:1;grid-row:1}
+  .tb2 .article-layout > .ch-quote{grid-column:1;grid-row:2;align-self:start}
+  .tb2 .article-layout > .article-copy{grid-column:2;grid-row:1 / -1}
+}
+/* Phones: after the article (Sources), before the site footer. Same quiet type, not a new section. */
+@media(max-width:640px){
+  .tb2 .article-layout{display:flex;flex-direction:column}
+  .tb2 .article-layout > .ch-col{order:1}
+  .tb2 .article-layout > .article-copy{order:2}
+  .tb2 .article-layout > .ch-quote{order:3;margin:24px 0 0;padding:18px 0 0}
+  .ch-quote blockquote p{font-size:15px}
+}
+@media print{
+  .ch-quote{break-inside:avoid}
+}
