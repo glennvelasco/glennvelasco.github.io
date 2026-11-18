@@ -24,7 +24,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/affitto-new-york.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://glennvelasco.com/es/alquilar-new-york.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://glennvelasco.com/renters-guide.html"/></url>
-  <url><loc>https://glennvelasco.com/nyc-guarantor-guide.html</loc><lastmod>2026-11-02</lastmod></url>
+  <url><loc>https://glennvelasco.com/nyc-guarantor-guide.html</loc><lastmod>2026-11-02</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://glennvelasco.com/nyc-guarantor-guide.html"/><xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/garante-affitto-new-york.html"/><xhtml:link rel="alternate" hreflang="es" href="https://glennvelasco.com/es/garante-alquiler-nueva-york.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://glennvelasco.com/nyc-guarantor-guide.html"/></url>
   <url><loc>https://glennvelasco.com/it/affitto-new-york.html</loc><lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://glennvelasco.com/renters-guide.html"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/affitto-new-york.html"/>
@@ -65,4 +65,6 @@
   <url><loc>https://glennvelasco.com/sellers-guide.html</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://glennvelasco.com/compass-private-exclusives-nyc.html</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://glennvelasco.com/nyc-corporate-lease-guide.html</loc><lastmod>2026-11-18</lastmod></url>
+<url><loc>https://glennvelasco.com/it/garante-affitto-new-york.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://glennvelasco.com/nyc-guarantor-guide.html"/><xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/garante-affitto-new-york.html"/><xhtml:link rel="alternate" hreflang="es" href="https://glennvelasco.com/es/garante-alquiler-nueva-york.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://glennvelasco.com/nyc-guarantor-guide.html"/></url>
+<url><loc>https://glennvelasco.com/es/garante-alquiler-nueva-york.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://glennvelasco.com/nyc-guarantor-guide.html"/><xhtml:link rel="alternate" hreflang="it" href="https://glennvelasco.com/it/garante-affitto-new-york.html"/><xhtml:link rel="alternate" hreflang="es" href="https://glennvelasco.com/es/garante-alquiler-nueva-york.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://glennvelasco.com/nyc-guarantor-guide.html"/></url>
 </urlset>
